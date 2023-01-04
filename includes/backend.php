@@ -39,12 +39,11 @@
             // save the featured set status
 
             if($_POST['featured_set'] == "true") {
-                update_post_meta($_POST['post_ID'], 'featured_set', 'true', true);
+                update_post_meta($_POST['post_ID'], 'featured_set', 'true');
             } elseif($_POST['featured_set'] == "false") {
-                update_post_meta($_POST['post_ID'], 'featured_set', 'false', true);
+                update_post_meta($_POST['post_ID'], 'featured_set', 'false');
             }
             
-
             // if(isset($_POST['post_ID'])) {
             //     if($_POST['featured_set'] == null || $_POST['featured_set'] == "") {
             //         $isfeaturedset = "false";
