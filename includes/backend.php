@@ -38,7 +38,7 @@
         if(isset($_POST['post_type']) == 'portfolio_sets') {
             $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
-            if(isset($_POST['featured_set_val']) == "1") {
+            if(isset($_POST['submit'])) {
                 update_post_meta($_POST['post_ID'], 'featured_set', $_POST['featured_set']);
             }
             // save the preset selection
