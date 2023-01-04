@@ -338,7 +338,7 @@
                     </div>
                 </div>
                 <!-- Flashcard Slide Controls -->
-                <?php if(user_is_logged_in()) { ?>
+                <?php if(is_user_logged_in()) { ?>
                     <?php if($totalcardsofset > 0 && ($usersetcount < $usersetlimit || $usersetlimit == "")) { ?>
                         <form class="duplicate-set-form" style="display:none;" action="" method="post">
                             <input type="hidden" name="dup_set_id" value="<?= $cardsetid ?>">
