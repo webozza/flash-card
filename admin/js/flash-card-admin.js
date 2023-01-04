@@ -677,9 +677,44 @@
       makePresetArray();
       updatePresetArray();
 
-      $("#publish").mouseover(function () {
-        $(".update--card a").trigger("click");
-        $(".save--card a").trigger("click");
+      let mouseOverPush = () => {
+        $("#publish").mouseover(function () {
+          $(".update--card a").trigger("click");
+          $(".save--card a").trigger("click");
+        });
+      };
+
+      var newCustomCards = [];
+      var existingCustomCards = [];
+
+      //new set cards
+      $("#submitdiv").hover(function () {
+        newCustomCards = [];
+        existingCustomCards = [];
+        $("#accordion_new_card .accordion-inner.existing-cards").each(
+          function () {
+            existingCustomCards.push({
+              post_title: $(this).find("input.cc--title").val(),
+              post_desc: $(this).find("textarea.cc--desc").val(),
+              thumb_id: $(this).find('input[name="rudr_img"]').val(),
+              post_id: $(this).attr("id"),
+            });
+          }
+        );
+        $('[name="save_existing_cards"]').val(
+          JSON.stringify(existingCustomCards)
+        );
+        $("#accordion_new_card .accordion-inner:not(.existing-cards)").each(
+          function () {
+            newCustomCards.push({
+              post_title: $(this).find("input.cc--title").val(),
+              post_desc: $(this).find("textarea.cc--desc").val(),
+              thumb_id: $(this).find('input[name="rudr_img"]').val(),
+              post_id: $(this).attr("id"),
+            });
+          }
+        );
+        $('[name="save_new_cards"]').val(JSON.stringify(newCustomCards));
       });
 
       $(".cc--new .accordion-header").click(async function () {

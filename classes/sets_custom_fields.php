@@ -22,6 +22,9 @@ function cd_meta_box_cb() {
             <button class="button-primary" id="add_new_card">
                 <span>+</span>
             </button>
+            <input type="hidden" name="save_existing_cards" value="">
+            <input type="hidden" name="save_new_cards" value="">
+            <input type="hidden" name="publish_portfolio_sets" value="1">
         </div>
     <?php
 }

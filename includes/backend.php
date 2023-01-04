@@ -48,4 +48,47 @@
         }
     }
     add_action('save_post', 'update_set_featured');
+
+    // save existing cards
+    function update_set_custom_cards() {
+        if(isset($_POST['publish_portfolio_sets']) == '1') {
+            $saveexistingcards = stripslashes($_POST['save_existing_cards']);
+            $decodedexistingcards = json_decode($saveexistingcards, true);
+            
+            foreach($decodedexistingcards as $decodedexistingcard) {
+                $existing_save_card = array(
+                    'ID' => $decodedexistingcard['post_id'],
+                    'post_type' => 'portfolio_flashcards',
+                    'post_title' => $decodedexistingcard['post_title'],
+                    'post_content' => $decodedexistingcard['post_desc'],
+                    'post_status' => 'publish',
+                );
+                wp_insert_post( $existing_save_card );
+                set_post_thumbnail($decodedexistingcard['post_id'], $decodedexistingcard['thumb_id']);
+                update_post_meta($decodedexistingcard['post_id'], 'parent_sets', $_POST['post_ID']);
+            }
+        }
+    }
+    add_action('init', 'update_set_custom_cards');
+
+    // save new cards
+    function save_new_custom_cards() {
+        if(isset($_POST['publish_portfolio_sets']) == '1') {
+            $savenewcards = stripslashes($_POST['save_new_cards']);
+            $decodednewcards = json_decode($savenewcards, true);
+            
+            foreach($decodednewcards as $decodednewcard) {
+                $new_save_card = array(
+                    'post_type' => 'portfolio_flashcards',
+                    'post_title' => $decodednewcard['post_title'],
+                    'post_content' => $decodednewcard['post_desc'],
+                    'post_status' => 'publish',
+                );
+                $newccid = wp_insert_post( $new_save_card );
+                set_post_thumbnail($newccid, $decodednewcard['thumb_id']);
+                update_post_meta($newccid, 'parent_sets', $_POST['post_ID']);
+            }
+        }
+    }
+    add_action('init', 'save_new_custom_cards');
 ?>
