@@ -200,10 +200,10 @@ function set_presets_cb() {
             ?>
             <input type="hidden" name="save_preset_cards" value="">
             <script>
-                let selectedPresetRecords = <?= wp_json_encode($getpresetvalues[0]) ?>;
+                let selectedPresetRecords = "<?= wp_json_encode($getpresetvalues[0]) ?>";
                 console.log('wp-encoded', selectedPresetRecords);
                 if(selectedPresetRecords !== null) {
-                    selectedPresetRecords.forEach(entries => {
+                    selectedPresetRecords.map(entries => {
                         jQuery(`#${entries.cat}`).val(entries.ids).trigger("change");
                     });
                 }
