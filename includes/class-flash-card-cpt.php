@@ -117,6 +117,7 @@ register_post_meta(
     'portfolio_sets',
     'featured_set',
     array(
+        'default' => 'false',
         'show_in_rest' => true,
     )
 );
