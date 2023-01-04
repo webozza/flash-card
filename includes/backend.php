@@ -37,15 +37,16 @@
         if(isset($_POST['publish_portfolio_sets']) == '1') {
             $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
+            update_post_meta($_POST['post_ID'], 'featured_set', $isfeaturedset, true);
 
-            if(isset($_POST['post_ID'])) {
-                if($_POST['featured_set'] == null || $_POST['featured_set'] == "") {
-                    $isfeaturedset = "false";
-                } else {
-                    $isfeaturedset = "true";
-                }
-                update_post_meta($_POST['post_ID'], 'featured_set', $isfeaturedset, true);
-            }
+            // if(isset($_POST['post_ID'])) {
+            //     if($_POST['featured_set'] == null || $_POST['featured_set'] == "") {
+            //         $isfeaturedset = "false";
+            //     } else {
+            //         $isfeaturedset = "true";
+            //     }
+                
+            // }
         
             // save the preset selection
             $savepresetselection = $_POST['save_preset_cards'];
