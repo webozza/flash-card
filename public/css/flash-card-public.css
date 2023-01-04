@@ -1,0 +1,202 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+:root {
+  --success: green;
+}
+html {
+  scroll-behavior: smooth;
+}
+#custom-flashcard-sets {
+  margin-bottom: 30px;
+}
+.btn-crud > a:hover img {
+  opacity: 0.75;
+}
+.btn-crud > a img,
+.cc-duplicate img {
+  width: 20px;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+.custom-card-crud,
+.default-card-crud {
+  display: flex;
+  justify-content: space-between;
+}
+.custom-card-crud .card-title,
+.default-card-crud .card-title {
+  width: 70%;
+}
+.btn-crud {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  width: 30%;
+  justify-content: flex-end;
+}
+.set-cards > div {
+  width: 50%;
+}
+
+.set-cards {
+  margin-top: 60px;
+  display: flex;
+  column-gap: 50px;
+}
+
+.fc--hide {
+  display: none;
+}
+
+.custom-cards .accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 10px 10px 0 10px;
+  border-radius: 5px;
+}
+
+.custom-cards .accordion-header > div {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  cursor: pointer;
+}
+
+.custom-cards .accordion-body {
+  padding: 20px;
+}
+
+.custom-cards .accordion-title {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.custom-cards .toggle {
+  pointer-events: none;
+}
+.custom-cards .accordion-title.active .toggle {
+  transform: rotate(-180deg);
+}
+.rudr-upload img[featured_media_id="0"] {
+  display: none;
+}
+.custom-cards .cc_field_image img {
+  width: 150px;
+  border-radius: 5px;
+}
+.custom-cards .cc_field_image {
+  display: flex;
+  flex-direction: column;
+}
+.shortcode-flashcard .media-router > button {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.custom-cards .rudr-upload {
+  width: fit-content;
+}
+#updateSet {
+  margin-top: 15px;
+}
+#createSet {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+/*-- Select 2 --*/
+ul.select2-selection__rendered img,
+.select2-results__option img {
+  margin-right: 5px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+/*-- Pagination --*/
+#wp_pagination a.active {
+  font-weight: bold;
+  background: #446084;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+#wp_pagination > * {
+  margin: 10px;
+}
+
+#wpadminbar #wp-admin-bar-edit-set > .ab-item::before {
+  content: "\f464";
+  top: 2px;
+}
+
+/*-- Loader --*/
+.creating-set-loader img {
+  width: 24px;
+  height: 24px;
+  animation: spinner 5s infinite linear;
+  transform: rotate(0deg);
+}
+@keyframes spinner {
+  100% {
+    transform: rotate(3600deg);
+  }
+}
+.creating-set-loader {
+  display: flex;
+  align-items: flex-end;
+  column-gap: 5px;
+}
+.editing-set-container {
+  margin-bottom: 30px;
+}
+#createNewSet {
+  margin: 0;
+}
+.fc-publish {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+/*-- Flashcard set --*/
+.rudr-upload img {
+  max-width: 80px;
+  height: 80px;
+}
+p.card-cat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+/* Flashcard cpt post pages
+------------------------------------------*/
+.fc-cat-title {
+  text-transform: capitalize;
+}
+.fc-preset-card {
+  display: inline-block;
+  padding: 5px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 10%);
+  margin: 10px 20px 25px 0;
+  text-align: center;
+}
+.fc-preset-card img {
+  width: 80px;
+  height: 80px;
+}
+.button.primary.btn-study {
+  display: none;
+}
+.single-portfolio_sets .button span {
+  line-height: unset;
+}
