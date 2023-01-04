@@ -6,9 +6,6 @@
 
     <?php
         $getfeaturedsetvalue = get_post_meta(get_the_ID(), 'featured_set');
-        if(isset($getpresetvalues)) {
-            $getpresetvalues = get_post_meta(get_the_ID(), 'selected_presets');
-        }
     ?>
 
     <div class="misc-pub-section" id="featured_set_checkbox">
@@ -38,6 +35,7 @@
 
     function update_set_featured() {
         if(isset($_POST['post_type']) == 'portfolio_sets') {
+            $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
             update_post_meta(get_the_ID(), 'featured_set', $_POST['featured_set']);
             // save the preset selection
