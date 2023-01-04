@@ -6,7 +6,9 @@
 
     <?php
         $getfeaturedsetvalue = get_post_meta(get_the_ID(), 'featured_set');
-        $getpresetvalues = get_post_meta(get_the_ID(), 'selected_presets');
+        if(isset($getpresetvalues)) {
+            $getpresetvalues = get_post_meta(get_the_ID(), 'selected_presets');
+        }
     ?>
 
     <div class="misc-pub-section" id="featured_set_checkbox">
