@@ -44,7 +44,7 @@
                 } else {
                     $isfeaturedset = "true";
                 }
-                update_post_meta($_POST['post_ID'], 'featured_set', $isfeaturedset);
+                update_post_meta($_POST['post_ID'], 'featured_set', $isfeaturedset, true);
             }
         
             // save the preset selection
