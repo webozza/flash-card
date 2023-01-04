@@ -56,7 +56,7 @@
         }
       });
 
-      // updateSetMetas();
+      updateSetMetas();
     };
 
     var _updateSetMetas = {
@@ -656,13 +656,6 @@
       setSlug();
       makePresetArray();
       updatePresetArray();
-
-      let mouseOverPush = () => {
-        $("#publish").mouseover(function () {
-          $(".update--card a").trigger("click");
-          $(".save--card a").trigger("click");
-        });
-      };
 
       var newCustomCards = [];
       var existingCustomCards = [];
