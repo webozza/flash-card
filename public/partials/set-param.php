@@ -289,12 +289,12 @@
                                         </div>
                                         <div class="card-description-container">
                                             <span class="fc-item-header">Item Description:</span>
-                                            <p><?= get_post_meta($post->ID, '_custom_editor_1', true) ?></p>
+                                            <p><?= get_post_meta(get_the_ID(), '_custom_editor_1', true) ?></p>
                                         </div>
                                         <div class="card-cat-container">
                                             <p class="card-cat" data-post-id="<?= get_the_ID() ?>">
                                                 <?php 
-                                                    $postcats = wp_get_object_terms( $post->ID, 'portfolio_entries', array( 'fields' => 'names' ) );
+                                                    $postcats = wp_get_object_terms( get_the_ID(), 'portfolio_entries', array( 'fields' => 'names' ) );
                                                     foreach($postcats as $postcat) {
                                                         echo '<span class="cat-names">'.$postcat.'</span>';
                                                     };
