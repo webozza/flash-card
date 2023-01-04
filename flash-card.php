@@ -16,7 +16,7 @@
  * Plugin Name:       Flash Card
  * Plugin URI:        https://github.com/webozza/wp-plugins/flashcard
  * Description:       Custom flash card plugin developed by @webozza
- * Version:           27.1.4
+ * Version:           27.1.5
  * Author:            Webozza
  * Author URI:        https://webozza.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLASH_CARD_VERSION', '27.1.4' );
+define( 'FLASH_CARD_VERSION', '27.1.5' );
 
 /**
  * The code that runs during plugin activation.
@@ -194,11 +194,11 @@ function single_scripts() {
 		$setownerid = get_current_user_id();
 		$usersetlimit = get_user_meta($setownerid, 'set_creation_limit')[0];
 		$usersetcount = count_user_posts($setownerid, 'portfolio_sets')[0];
-	}
 
-	if ( is_singular('post') && ($usersetcount < $usersetlimit || $usersetlimit == "") ) {
-		$public_dir = '/wp-content/plugins/flash-card/public/';
-		require_once( 'public/partials/duplicate-post-presets.php');
+		if ( is_singular('post') && ($usersetcount < $usersetlimit || $usersetlimit == "") ) {
+			$public_dir = '/wp-content/plugins/flash-card/public/';
+			require_once( 'public/partials/duplicate-post-presets.php');
+		}
 	}
 }
 add_action('wp_enqueue_scripts', 'single_scripts');
