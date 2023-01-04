@@ -16,7 +16,7 @@
  * Plugin Name:       Flash Card
  * Plugin URI:        https://github.com/webozza/wp-plugins/flashcard
  * Description:       Custom flash card plugin developed by @webozza
- * Version:           27.0.5
+ * Version:           27.0.6
  * Author:            Webozza
  * Author URI:        https://webozza.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLASH_CARD_VERSION', '27.0.5' );
+define( 'FLASH_CARD_VERSION', '27.0.6' );
 
 /**
  * The code that runs during plugin activation.
@@ -126,8 +126,10 @@ function flashcard_area() {
 		require plugin_dir_path( __FILE__ ) . 'public/partials/flashcard-newset.php';
 		return ob_get_clean();   
 	} else {
+		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'public/partials/flashcard-loggedout.php';
 		require plugin_dir_path( __FILE__ ) . 'public/partials/single-portfolio_sets.php';
+		return ob_get_clean();
 	}
  } 
  add_shortcode( 'flashcard-area', 'flashcard_area' );
