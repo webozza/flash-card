@@ -16,7 +16,7 @@
  * Plugin Name:       Flash Card
  * Plugin URI:        https://github.com/webozza/wp-plugins/flashcard
  * Description:       Custom flash card plugin developed by @webozza
- * Version:           26.0.8
+ * Version:           26.1.1
  * Author:            Webozza
  * Author URI:        https://webozza.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLASH_CARD_VERSION', '26.0.8' );
+define( 'FLASH_CARD_VERSION', '26.1.1' );
 
 /**
  * The code that runs during plugin activation.
