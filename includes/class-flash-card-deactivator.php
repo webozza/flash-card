@@ -30,14 +30,13 @@ class Flash_Card_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-		$allposts= get_posts( array('post_type'=>array('portfolio_sets', 'portfolio_flashcards'),'numberposts'=>-1) );
-		foreach ($allposts as $eachpost) {
-			// Delete all posts
-			wp_delete_post( $eachpost->ID, true, $force_delete = true );
-			// Delete options
-			// delete_option('fc_rlink');
-		}
-
+		// $allposts= get_posts( array('post_type'=>array('portfolio_sets', 'portfolio_flashcards'),'numberposts'=>-1) );
+		// foreach ($allposts as $eachpost) {
+		// 	// Delete all posts
+		// 	wp_delete_post( $eachpost->ID, true, $force_delete = true );
+		// 	// Delete options
+		// 	// delete_option('fc_rlink');
+		// }
 	}
 
 }
