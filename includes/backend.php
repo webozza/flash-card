@@ -37,7 +37,7 @@
         if(isset($_POST['post_type']) == 'portfolio_sets') {
             $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
-            update_post_meta(get_the_ID(), 'featured_set', $_POST['featured_set']);
+            update_post_meta($_POST['post_ID'], 'featured_set', $_POST['featured_set']);
             // save the preset selection
             $savepresetselection = $_POST['save_preset_cards'];
             $decodepresets = stripslashes($savepresetselection);
