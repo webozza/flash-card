@@ -41,7 +41,7 @@
             if(isset($_POST['post_ID'])) {
                 if($_POST['featured_set'] == true) {
                     update_post_meta($_POST['post_ID'], 'featured_set', 'true');
-                } elseif($_POST['featured_set'] == false) {
+                } elseif($_POST['featured_set'] == 'false') {
                     update_post_meta($_POST['post_ID'], 'featured_set', 'false');
                 } elseif($_POST['featured_set'] == "") {
                     update_post_meta($_POST['post_ID'], 'featured_set', 'false');
