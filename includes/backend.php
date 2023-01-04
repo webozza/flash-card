@@ -38,9 +38,9 @@
             $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
 
-            if($_POST['featured_set'] == "true") {
+            if($_POST['featured_set'] == true) {
                 update_post_meta($_POST['post_ID'], 'featured_set', 'true');
-            } elseif($_POST['featured_set'] == "false") {
+            } elseif($_POST['featured_set'] == false) {
                 update_post_meta($_POST['post_ID'], 'featured_set', 'false');
             } else {
                 update_post_meta($_POST['post_ID'], 'featured_set', 'false');
