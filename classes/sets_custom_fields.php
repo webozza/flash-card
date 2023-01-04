@@ -202,7 +202,7 @@ function set_presets_cb() {
                 let selectedPresetRecords = <?= wp_json_encode($getpresetvalues[0]) ?>;
                 console.log('wp-encoded', selectedPresetRecords);
                 if(selectedPresetRecords !== null) {
-                    selectedPresetRecords.map((entries) => {
+                    selectedPresetRecords.map(entries => {
                         jQuery(`#${entries.cat}`).val(entries.ids).trigger("change");
                     });
                 }
