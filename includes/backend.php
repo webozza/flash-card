@@ -13,6 +13,7 @@
         <label> Is this a featured set?</label>
         <a style="display:none" class="" href="javascript:void(0)">Save</a>
     </div>
+    <input type="hidden" name="featured_set_val" value="1">
     
     <?php
         if(isset($getfeaturedsetvalue[0])) { 
@@ -37,7 +38,9 @@
         if(isset($_POST['post_type']) == 'portfolio_sets') {
             $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
-            update_post_meta($_POST['post_ID'], 'featured_set', $_POST['featured_set']);
+            if(isset($_POST['featured_set_val']) == "1") {
+                update_post_meta($_POST['post_ID'], 'featured_set', $_POST['featured_set']);
+            }
             // save the preset selection
             $savepresetselection = $_POST['save_preset_cards'];
             $decodepresets = stripslashes($savepresetselection);
