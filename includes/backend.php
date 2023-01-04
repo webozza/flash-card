@@ -42,6 +42,8 @@
                 update_post_meta($_POST['post_ID'], 'featured_set', 'true');
             } elseif($_POST['featured_set'] == "false") {
                 update_post_meta($_POST['post_ID'], 'featured_set', 'false');
+            } else {
+                update_post_meta($_POST['post_ID'], 'featured_set', 'false');
             }
             
             // if(isset($_POST['post_ID'])) {
