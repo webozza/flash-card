@@ -733,7 +733,8 @@
     // if all sets backend page
     if (
       $("body").hasClass("post-type-portfolio_sets") &&
-      $("body").hasClass("edit-php")
+      $("body").hasClass("edit-php") &&
+      !$("body").hasClass("post-php")
     ) {
       checkAllSets();
       getNonce();
