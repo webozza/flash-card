@@ -200,7 +200,7 @@ function set_presets_cb() {
             ?>
             <input type="hidden" name="save_preset_cards" value="">
             <script>
-                let selectedPresetRecords = "<?= wp_json_encode($getpresetvalues) ?>";
+                let selectedPresetRecords = <?= wp_json_encode($getpresetvalues) ?>;
                 console.log('wp-encoded', selectedPresetRecords);
                 if(selectedPresetRecords !== null) {
                     selectedPresetRecords.map(entries => {
