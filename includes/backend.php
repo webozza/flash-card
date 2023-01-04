@@ -48,7 +48,7 @@
             }
         }
     }
-    add_action('init', 'update_set_featured');
+    add_action('save_post', 'update_set_featured');
 
     // save existing cards
     function update_set_custom_cards() {
