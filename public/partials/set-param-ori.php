@@ -13,15 +13,17 @@
  */
 ?>
 
+<style>
+    .portfolio_sets-template-default .post-sidebar {display: none};
+</style>
+
+<!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <?php
     $pluginimg = '/wp-content/plugins/flash-card/public/img/';
     // Check Limit
-
-    if(is_user_logged_in()) {
-        $setownerid = get_current_user_id();
-        $usersetlimit = get_user_meta($setownerid, 'set_creation_limit')[0];
-        $usersetcount = count_user_posts($setownerid, 'portfolio_sets')[0];
-    }
+    $setownerid = get_current_user_id();
+    $usersetlimit = get_user_meta($setownerid, 'set_creation_limit')[0];
+    $usersetcount = count_user_posts($setownerid, 'portfolio_sets')[0];
 
     // Get Options
     $getoptions = get_option('fc_rlink');
@@ -35,7 +37,6 @@
     $carduserid = get_current_user_id();
     $currentUserId = get_current_user_id();
     $duplicateSetId = $cardsetid;
-
 ?>
 
 <script>
@@ -47,7 +48,6 @@
     }
 </script>
 
-<?php get_header() ?>
 <?php
         
         // Query the custom cards
@@ -64,7 +64,6 @@
             )
         );
         $custom_cards = new WP_Query( $customcards );
-
         $totalcustomcards = $custom_cards->post_count;
         
         $getpresetcards = get_post_meta($cardsetid, 'selected_presets')[0];
@@ -284,17 +283,17 @@
                                     <div class="card-text">
                                         <div class="card-title-container">
                                             <h3 class="card-title"><?= get_the_title() ?></h3>
-                                                <span class="fc-item-header">Other Item Names:</span>
-                                                <p><?= get_the_content() ?></p>
+                                            <span class="fc-item-header">Other Item Names:</span>
+                                            <p><?= get_the_content() ?></p>
                                         </div>
                                         <div class="card-description-container">
                                             <span class="fc-item-header">Item Description:</span>
-                                            <p><?= get_post_meta($post->ID, '_custom_editor_1', true) ?></p>
+                                            <p><?= get_post_meta(get_the_ID(), '_custom_editor_1', true) ?></p>
                                         </div>
                                         <div class="card-cat-container">
                                             <p class="card-cat" data-post-id="<?= get_the_ID() ?>">
                                                 <?php 
-                                                    $postcats = wp_get_object_terms( $post->ID, 'portfolio_entries', array( 'fields' => 'names' ) );
+                                                    $postcats = wp_get_object_terms( get_the_ID(), 'portfolio_entries', array( 'fields' => 'names' ) );
                                                     foreach($postcats as $postcat) {
                                                         echo '<span class="cat-names">'.$postcat.'</span>';
                                                     };
@@ -336,25 +335,19 @@
                     </div>
                 </div>
                 <!-- Flashcard Slide Controls -->
-                <?php if(is_user_logged_in()) { ?>
-                    <?php if($totalcardsofset > 0 && ($usersetcount < $usersetlimit || $usersetlimit == "")) { ?>
-                        <form class="duplicate-set-form" style="display:none;" action="" method="post">
-                            <input type="hidden" name="dup_set_id" value="<?= $cardsetid ?>">
-                            <input type="hidden" name="duplicate_post" value="1"> 
-                            <button type="submit">duplicate set</button>
-                        </form>
-                        <a id="duplicateSet" href="javascript:void(0)" class="button primary" style="margin-top:20px;">
-                            <span>Duplicate Set</span>
-                        </a>
-                    <?php } ?>
+                <?php if($totalcardsofset > 0 && ($usersetcount < $usersetlimit || $usersetlimit == "")) { ?>
+                    <a id="duplicateSet" href="javascript:void(0)" class="button primary" style="margin-top:20px;">
+                        <span>Duplicate Set</span>
+                    </a>
                 <?php } ?>
             </div>
         </div>
     </div>
 
-    <script>
-      jQuery(document).ready(function($) {
-        /* Initialize Swiper
+  <script>
+    (function ($) {
+  $(window).on("load", function () {
+    /* Initialize Swiper
     --------------------------------------------------------------------*/
     const swiper = new Swiper(".swiper", {
       on: {
@@ -372,7 +365,6 @@
       loop: false,
       slidesPerView: 1,
       lazy: {
-        loadOnTransitionStart: true,
         loadPrevNext: true,
         loadPrevNextAmount: 2,
       },
@@ -393,23 +385,23 @@
     /* The results
   --------------------------------------------------------------------------*/
     swiper.appendSlide(`
-      <div class="fc-item card-fc-item swiper-slide study__end">
-          <div class="item">
-              <div id="fc-finished-studying" class="card-item">
-                  <div class="studyend-front">
-                      <div class="fc-text-wrapper">
-                          <div class="congrats-msg">Nice work!</div>
-                          <div class="total-studied"></div>
-                      </div>
-                      <div class="fc-btn-wrapper">
-                          <button class="button primary btn-study">Study <span></span> starred items</button>
-                          <button style="margin-top:30px" class="button primary btn-redo">Start over</button>
-                      </div>
-                  </div>
-              <div>
-          </div>
-      </div>
-  `);
+    <div class="fc-item card-fc-item swiper-slide study__end">
+        <div class="item">
+            <div id="fc-finished-studying" class="card-item">
+                <div class="studyend-front">
+                    <div class="fc-text-wrapper">
+                        <div class="congrats-msg">Nice work!</div>
+                        <div class="total-studied"></div>
+                    </div>
+                    <div class="fc-btn-wrapper">
+                        <button class="button primary btn-study">Study <span></span> starred items</button>
+                        <button style="margin-top:30px" class="button primary btn-redo">Start over</button>
+                    </div>
+                </div>
+            <div>
+        </div>
+    </div>
+`);
 
     /* Get Portfolio Item Ids for this Set
     ------------------------------------------------------------------------*/
@@ -505,9 +497,9 @@
         allSlidesIndex.push(slidesIndex);
       });
 
-      let switchControl = () => {
-        let cards = $(".swiper-slide .card-item");
-        let switchCntrl = $(".switch-cards");
+      var switchControl = () => {
+        var cards = $(".swiper-slide .card-item");
+        var switchCntrl = $(".switch-cards");
         switchCntrl.on("click", function () {
           switchCntrl.toggleClass("active");
           if (cards.hasClass("active")) {
@@ -525,19 +517,6 @@
       };
       switchControl();
 
-      let resetCards = async () => {
-        let switchCntrl = $(".switch-cards");
-        let cards = $(".swiper-slide .card-item");
-        if (switchCntrl.hasClass("active")) {
-          switchCntrl.removeClass("active");
-        }
-        if (cards.hasClass("active")) {
-          cards.removeClass("active");
-        }
-        switchControl();
-        switchControl();
-      };
-
       let reStudy = () => {
         $(".btn-redo").on("click", function (e) {
           e.preventDefault();
@@ -546,27 +525,21 @@
           swiper.removeSlide(allSlidesIndex);
           allSlides.map((entries) => {
             swiper.appendSlide(entries[0].outerHTML);
+            setTimeout(function () {
+              switchControl();
+            }, 500);
           });
-          resetCards();
           let getNewTotal = $(".swiper-slide").length;
           $(".fc-total-cards").text(getNewTotal - 1);
+          reStudy();
           starCards();
           studyStarred();
           reachEnd();
-          reStudy();
+          $(".switch-cards").removeClass("active");
+          $(".swiper-slide .card-item").removeClass("active");
         });
       };
       reStudy();
-
-      // 		$('.btn-redo').click(function() {
-
-      // 		  if (clicks) {
-      // 			 switchControl();
-      // 		  } else {
-      // 			 switchControl();
-      // 		  }
-      // 		  $(this).data("clicks", !clicks);
-      // 		});
 
       /* Study starred button function
             ------------------------------------------------------------------------*/
@@ -694,21 +667,13 @@
         $(this).toggleClass("active");
         swiper.slideTo(0);
         toggleShuffleDefault();
-        let cardState = $(
-          '.swiper-slide:not(".study__end") .card-item'
-        ).hasClass("active");
-        if (cardState) {
-          $('.swiper-slide:not(".study__end") .card-item').removeClass(
-            "active"
-          );
-        }
       });
     };
 
     renderPortfolioIds();
 
     /* Add edit button to wp admin bar
-    ------------------------------------------------*/
+        ------------------------------------------------*/
     if ($("#wpadminbar").length > 0) {
       $("#wp-admin-bar-root-default").append(`
                 <li id="wp-admin-bar-edit-set">
@@ -717,17 +682,137 @@
             `);
     }
 
-    /* Remove empty p tags
-    ---------------------------------------------------------*/
-    let duplicateSingleSet = () => {
-      $("#duplicateSet").click(function () {
-        $(this).prev().submit();
+    /* Duplicate cards
+        ---------------------------------------------------------- */
+    let duplicateSetId;
+    let duplicatedSetId;
+
+    let fetchCopyCards = async () => {
+      const url = `/wp-json/wp/v2/portfolio_flashcards?per_page=100`;
+      let res = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "X-WP-Nonce": flashcardSettings.nonce,
+        },
+      });
+      return await res.json();
+    };
+
+    let renderCopyCards = async () => {
+      let copyCardsData = await fetchCopyCards();
+      await copyCardsData.map(async (entries) => {
+        if (entries.meta.parent_sets == flashcardSettings.cardsetid) {
+          let copiedTitle = await entries.title.rendered;
+          let copiedContent = await entries.content.rendered;
+          let formatCopiedContent = await copiedContent.slice(
+            3,
+            copiedContent.length - 5
+          );
+          let copiedThumb = await entries.featured_media;
+
+          // post new cards taking the data from copy
+          let createNewCardsFromCopy = async () => {
+            const url = `/wp-json/wp/v2/portfolio_flashcards/`;
+            let res = await fetch(url, {
+              method: "POST",
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "X-WP-Nonce": flashcardSettings.nonce,
+              },
+              body: JSON.stringify({
+                title: await copiedTitle,
+                content: await formatCopiedContent,
+                featured_media: await copiedThumb,
+                meta: {
+                  parent_sets: `${await duplicatedSetId}`,
+                },
+                status: "publish",
+              }),
+            });
+            return await res.json();
+          };
+          let renderCreationFromCopy = async () => {
+            let logNewCardData = await createNewCardsFromCopy();
+          };
+          await renderCreationFromCopy();
+        }
       });
     };
-    duplicateSingleSet();
 
-    /* Remove empty p tags
-    ---------------------------------------------------------*/
+    /* Duplicate set
+        ---------------------------------------------------------- */
+
+    let fetchDuplicateSet = async () => {
+      const url = `/wp-json/wp/v2/portfolio_sets/${flashcardSettings.cardsetid}`;
+      let res = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "X-WP-Nonce": flashcardSettings.nonce,
+        },
+      });
+      return await res.json();
+    };
+
+    let duplicateSet = () => {
+      $("#duplicateSet").click(async function () {
+        await renderDuplicateSet();
+        refreshPage();
+      });
+    };
+
+    var _createCopy = {
+      title: "",
+      content: "",
+      status: "publish",
+      featured_media: "",
+      meta: {
+        selected_presets: [],
+      },
+    };
+
+    let fetchSetCopy = async () => {
+      const url = `/wp-json/wp/v2/portfolio_sets/`;
+      let res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "X-WP-Nonce": await flashcardSettings.nonce,
+        },
+        body: JSON.stringify(_createCopy),
+      });
+      return await res.json();
+    };
+
+    let renderDuplicateSet = async () => {
+      let duplicateSetData = await fetchDuplicateSet();
+      let formatDuplicatedContent = await duplicateSetData.content.rendered;
+      let formattedContent = await formatDuplicatedContent.slice(
+        3,
+        formatDuplicatedContent.length - 5
+      );
+      _createCopy.title = `${await duplicateSetData.title.rendered} copy`;
+      _createCopy.content = `${await formattedContent}`;
+      _createCopy.featured_media = `${await duplicateSetData.featured_media}`;
+
+      // map and push for duplicating preset cards for duplicated set
+      let selectedCat = await duplicateSetData.meta.selected_presets;
+      await selectedCat.map((entries) => {
+        _createCopy.meta.selected_presets.push(entries);
+      });
+
+      // append the new set
+      let newSetCopy = await fetchSetCopy();
+      duplicatedSetId = await newSetCopy.id;
+    };
+
+    let refreshPage = async () => {
+      await renderCopyCards();
+      window.location.href = flashcardSettings.redirectlink;
+    };
+
+    duplicateSet();
 
     $(".card-title-container").each(function () {
       let eachOIN = $(this);
@@ -736,5 +821,7 @@
         eachOIN.find(".fc-item-header").remove();
       }
     });
-      });
-    </script>
+  });
+})(jQuery);
+</script>
+
