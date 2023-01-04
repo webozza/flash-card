@@ -38,12 +38,10 @@
             $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
 
-            if(isset($_POST['post_ID'])) {
-                if($_POST['featured_set'] == true) {
-                    update_post_meta($_POST['post_ID'], 'featured_set', 'true');
-                } else {
-                    update_post_meta($_POST['post_ID'], 'featured_set', 'false');
-                }
+            if(isset($_POST['featured_set']) == true) {
+                update_post_meta($_POST['post_ID'], 'featured_set', 'true');
+            } else {
+                update_post_meta($_POST['post_ID'], 'featured_set', 'false');
             }
             
             // if(isset($_POST['post_ID'])) {
