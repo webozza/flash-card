@@ -56,7 +56,7 @@
         }
       });
 
-      updateSetMetas();
+      // updateSetMetas();
     };
 
     var _updateSetMetas = {
@@ -98,26 +98,6 @@
         updateSet();
       });
     };
-
-    /* Check to see if is featured set
-     * ---------------------------------------------------------------------*/
-    // let fetchFeaturedSet = async () => {
-    //   let getSetID = $("#post_ID").val();
-    //   const url = `/wp-json/wp/v2/portfolio_sets/${getSetID}`;
-    //   let res = await fetch(url);
-    //   return await res.json();
-    // };
-
-    // let checkFeaturedSet = async () => {
-    //   let checkFeatured = await fetchFeaturedSet();
-    //   if (checkFeatured.meta.featured_set[0] == "true") {
-    //     $("#featured_set_checkbox input").prop("checked", true);
-    //     $("#featured_set_checkbox input").val("true");
-    //   } else {
-    //     $("#featured_set_checkbox input").prop("checked", false);
-    //     $("#featured_set_checkbox input").val("false");
-    //   }
-    // };
 
     /* Get all users and set owner
      * ---------------------------------------------------------------------*/
