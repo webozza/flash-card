@@ -17,12 +17,11 @@
     
     <?php
         if(isset($getfeaturedsetvalue[0])) { 
-            if($getfeaturedsetvalue[0] == true) {
+            if($getfeaturedsetvalue[0] == "true") {
                 ?>
                     <script>jQuery('[name="featured_set"]').prop("checked", true);</script>
                 <?php
-            }
-            if($getfeaturedsetvalue[0] == false) {
+            } else {
                 ?>
                     <script>jQuery('[name="featured_set"]').prop("checked", false);</script>
                 <?php
