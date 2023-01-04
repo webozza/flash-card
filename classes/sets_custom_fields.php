@@ -151,6 +151,7 @@ function set_presets_cb() {
                     'taxonomy' => 'portfolio_entries',
             );
             $categories = get_categories ( $cat_args );
+            $getpresetvalues = get_post_meta(get_the_ID(), 'selected_presets', true);
             
             foreach ( $categories as $category ) {
                 $cat_query = null;
@@ -197,21 +198,13 @@ function set_presets_cb() {
                 wp_reset_postdata();
             }
             ?>
-            <?php
-                $getthepostid = get_the_ID();
-                if(isset($getthepostid)) {
-                    $getpresetvalues = get_post_meta($getthepostid, 'selected_presets');
-                }
-            ?>
             <script>
-                if(!jQuery('body').hasClass('post-new-php')) {
-                    let selectedPresetRecords = <?= wp_json_encode($getpresetvalues[0]) ?>;
-                    console.log('wp-encoded', selectedPresetRecords);
-                    if(selectedPresetRecords !== null) {
-                        selectedPresetRecords.map((entries) => {
-                            jQuery(`#${entries.cat}`).val(entries.ids).trigger("change");
-                        });
-                    }
+                let selectedPresetRecords = <?= wp_json_encode($getpresetvalues[0]) ?>;
+                console.log('wp-encoded', selectedPresetRecords);
+                if(selectedPresetRecords !== null) {
+                    selectedPresetRecords.map((entries) => {
+                        jQuery(`#${entries.cat}`).val(entries.ids).trigger("change");
+                    });
                 }
             </script>
             <input type="hidden" name="save_preset_cards" value="">
