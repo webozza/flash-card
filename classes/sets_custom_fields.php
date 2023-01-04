@@ -200,7 +200,7 @@ function set_presets_cb() {
             <?php
                 $getthepostid = get_the_ID();
                 if(isset($getthepostid)) {
-                    $getpresetvalues = get_post_meta(, 'selected_presets');
+                    $getpresetvalues = get_post_meta($getthepostid, 'selected_presets');
                 }
             ?>
             <script>
