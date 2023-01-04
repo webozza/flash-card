@@ -35,12 +35,10 @@
     add_action( 'post_submitbox_misc_actions', 'is_featured_set' );
 
     function update_set_featured() {
-        if(isset($_POST['post_type']) == 'portfolio_sets') {
+        if(isset($_POST['publish_portfolio_sets']) == '1') {
             $getpresetvalues = get_post_meta($_POST['post_ID'], 'selected_presets');
             // save the featured set status
-            if(isset($_POST['submit'])) {
-                update_post_meta($_POST['post_ID'], 'featured_set', $_POST['featured_set']);
-            }
+            update_post_meta($_POST['post_ID'], 'featured_set', $_POST['featured_set']);
             // save the preset selection
             $savepresetselection = $_POST['save_preset_cards'];
             $decodepresets = stripslashes($savepresetselection);
