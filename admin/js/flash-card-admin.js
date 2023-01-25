@@ -197,12 +197,15 @@
     };
 
     let setIsActive = () => {
+      let checkUri = window.location.href.includes("?post_type=portfolio_sets");
       let flashcardMenu = $("#menu-posts-portfolio_flashcards");
-      $("#menu-posts-portfolio_flashcards > ul li.wp-second-item").addClass(
-        "current"
-      );
-      flashcardMenu.addClass("wp-menu-open wp-has-current-submenu");
-      flashcardMenu.removeClass("wp-not-current-submenu");
+      if (checkUri) {
+        $("#menu-posts-portfolio_flashcards > ul li.wp-second-item").addClass(
+          "current"
+        );
+        flashcardMenu.addClass("wp-menu-open wp-has-current-submenu");
+        flashcardMenu.removeClass("wp-not-current-submenu");
+      }
     };
 
     /* Image uploader for custom cards
@@ -587,7 +590,6 @@
     };
 
     let firePresets = () => {
-      setIsActive();
       $(".preset-selection").select2({
         templateResult: formatState,
         templateSelection: formatState,
@@ -648,6 +650,7 @@
     updateFeaturedCheckbox();
     disableAddNew();
     addSetsMenu();
+    setIsActive();
     renderCardMeta();
     firePresets();
 
