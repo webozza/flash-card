@@ -55,7 +55,8 @@ function duplicate_presets() {
         $duplicate_preset = array(
             'post_type' => 'portfolio_sets',
             'post_title' => get_the_title($duppresetid),
-            'post_content' => get_post_field('post_content', $duppresetid),
+            // 'post_content' => get_post_field('post_content', $duppresetid),
+            'post_content' => '',
             'post_status' => 'publish',
         );
         $newpresetid = wp_insert_post( $duplicate_preset );
