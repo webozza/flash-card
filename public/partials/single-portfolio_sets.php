@@ -38,7 +38,6 @@
     $currentUserId = get_current_user_id();
     $duplicateSetId = $cardsetid;
     $authorid = $author_id = get_post_field( 'post_author', $cardsetid );
-    echo $authorid;
 ?>
 
 <script>
@@ -346,9 +345,11 @@
                             <input type="hidden" name="duplicate_post" value="1"> 
                             <button type="submit">duplicate set</button>
                         </form>
-                        <a id="duplicateSet" href="javascript:void(0)" class="button primary" style="margin-top:20px;">
-                            <span>Duplicate Set</span>
-                        </a>
+                        <?php if($currentUserId == $authorid) { ?>
+                            <a id="duplicateSet" href="javascript:void(0)" class="button primary" style="margin-top:20px;">
+                                <span>Duplicate Set</span>
+                            </a>
+                        <?php } ?>
                     <?php } ?>
                 <?php } ?>
             </div>
