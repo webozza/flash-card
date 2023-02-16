@@ -335,7 +335,7 @@
                     </div>
                 </div>
                 <!-- Flashcard Slide Controls -->
-                <?php if($totalcardsofset > 0 && ($usersetcount < $usersetlimit || $usersetlimit == "")) { ?>
+                <?php if($totalcardsofset > 0 && ($usersetcount < $usersetlimit || $usersetlimit == "" || $usersetlimit != 0)) { ?>
                     <a id="duplicateSet" href="javascript:void(0)" class="button primary" style="margin-top:20px;">
                         <span>Duplicate Set</span>
                     </a>

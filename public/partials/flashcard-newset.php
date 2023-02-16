@@ -29,7 +29,7 @@
 <?php } ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<?php if ( isset( $_GET['new-set'] ) && !isset( $_GET['edit-set'] ) && ($usersetcount < $usersetlimit || $usersetlimit == "") ) { ?>
+<?php if ( isset( $_GET['new-set'] ) && !isset( $_GET['edit-set'] ) && ($usersetcount < $usersetlimit || $usersetlimit == "" || $usersetlimit != 0) ) { ?>
 
     <form style="display:none;" class="create-new-set-form" action="" method="post">
         <input type="hidden" name="create_set" value="1">
