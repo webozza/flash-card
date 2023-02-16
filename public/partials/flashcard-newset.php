@@ -67,8 +67,8 @@
         $args = array (
             'post_type' => 'portfolio',
             'post_status' => 'publish',
-            'order' => 'ASC',
-            'orderby' => 'date',
+            'orderby' => 'title',
+            'order' => 'DESC',
             'posts_per_page' => -1,
             'tax_query' => array(
                     array(
