@@ -68,7 +68,7 @@
             'post_type' => 'portfolio',
             'post_status' => 'publish',
             'orderby' => 'title',
-            'order' => 'DESC',
+            'order' => 'ASC',
             'posts_per_page' => -1,
             'tax_query' => array(
                     array(
