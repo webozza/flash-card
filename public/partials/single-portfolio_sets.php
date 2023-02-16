@@ -345,7 +345,7 @@
                             <input type="hidden" name="duplicate_post" value="1"> 
                             <button type="submit">duplicate set</button>
                         </form>
-                        <?php if($currentUserId == $authorid) { ?>
+                        <?php if($currentUserId !== $authorid) { ?>
                             <a id="duplicateSet" href="javascript:void(0)" class="button primary" style="margin-top:20px;">
                                 <span>Duplicate Set</span>
                             </a>
