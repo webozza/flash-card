@@ -37,7 +37,7 @@
     $carduserid = get_current_user_id();
     $currentUserId = get_current_user_id();
     $duplicateSetId = $cardsetid;
-    $authorid = $author_id = get_post_field( 'post_author', $cardsetid );
+    $authorid = get_post_field( 'post_author', $cardsetid );
 ?>
 
 <script>
