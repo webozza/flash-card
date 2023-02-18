@@ -394,7 +394,7 @@
                 }
 
                 let updateRole = async () => {
-                    const url = `/wp-json/wp/v2/users?roles=${sRemoved}`;
+                    const url = `/wp-json/wp/v2/users?roles=${sRemoved}&reassign=1`;
                     let res = await fetch(url, {
                         method: "POST",
                         headers: {
