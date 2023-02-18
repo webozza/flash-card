@@ -160,9 +160,8 @@
             $('.fc-user-role.new option').each(function() {
             let getOptions = $(this).val();
                 if($.inArray(getOptions, initialSelected) > -1) {
-                    console.log('In Array');
-                    $(this).remove();
                     initialSelected.push($(this).val());
+                    $(this).remove();
                 } else {
                     // do nothing for now...
                 }
