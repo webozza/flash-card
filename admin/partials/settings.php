@@ -406,7 +406,7 @@
                     return await res.json();
                 }
                 let renderRole = async () => {
-                    _updateRole.meta.set_creation_limit = "";
+                    _updateRole.meta.set_creation_limit = null;
                     let data = await updateRole();
                     console.log(data);
                 }
