@@ -163,7 +163,7 @@
                     console.log('In Array');
                     $(this).remove();
                 } else {
-                    console.log('Not In Array');
+                    // do nothing for now...
                 }
             })
 
