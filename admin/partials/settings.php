@@ -132,13 +132,6 @@
 
         let initialSelected = [];
 
-        let newSelectionFunc = async () => {
-            $('.fc-user-role.new').change(function() {
-                let newlySelected = $(this).select2('data').find(':selected').text();
-                initialSelected.push(newlySelected);
-            });
-        }
-
         $('.new-role-btn').click(async function() {
 
             // Store the initial selections
@@ -176,9 +169,6 @@
 
             selectInit();
             getNewSelection();
-            newSelectionFunc();
-
-            console.log(initialSelected);
         });
 
 
