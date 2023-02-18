@@ -401,7 +401,7 @@
                             'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify(set_creation_limit);
+                        body: JSON.stringify(set_creation_limit)
                     });
                     return await res.json();
                 }
