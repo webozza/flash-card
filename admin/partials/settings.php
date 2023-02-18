@@ -400,7 +400,27 @@
                 let renderRole = async () => {
                     let updateRoles = await updateRole();
                     updateRoles.map(entries => {
-                        console.log(entries.id);
+                        let updateEntries = async () => {
+                            const url = `/wp-json/wp/v2/users/${entries.id}`;
+                            let res = await fetch(url, {
+                                method: "POST",
+                                headers: {
+                                    'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    meta: {
+                                        set_creation_limit: ""
+                                    }
+                                })
+                            });
+                            return await res.json();
+                        }
+                        let runUpdate = async () => {
+                            let logUpdate = updateEntries();
+                            console.log(logUpdate);
+                        }
+                        runUpdate();
                     });
                 }
                 renderRole();
