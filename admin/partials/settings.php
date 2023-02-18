@@ -373,9 +373,9 @@
 
             // Deleting selections
             $('.fc-fields-container.with-selections select').change(function() {
-                let sFields = $(this);
+                let fCount = $('.fc-fields-container.with-selections select').length;
                 let sCount = $(this).select2('data').length;
-                if(sCount == 0 && sFields.length > 1) {
+                if(sCount == 0 && fCount > 1) {
                     $(this).select2('destroy');
                     $(this).parent().remove();
                 }
