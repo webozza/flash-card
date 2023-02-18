@@ -162,6 +162,7 @@
                 if($.inArray(getOptions, initialSelected) > -1) {
                     console.log('In Array');
                     $(this).remove();
+                    initialSelected.push($(this).val());
                 } else {
                     // do nothing for now...
                 }
