@@ -400,7 +400,7 @@
                 let renderRole = async () => {
                     let updateRoles = await updateRole();
                     updateRoles.map(entries => {
-                        console.log(entries);
+                        console.log(entries.id);
                     });
                 }
                 renderRole();
