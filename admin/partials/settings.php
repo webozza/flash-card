@@ -131,6 +131,17 @@
         selectInit();
 
         $('.new-role-btn').click(function() {
+
+            // Store the initial selections
+            let initialSelected = [];
+            $('.with-selections').each(function() {
+                let sInitial = $(this).find('select').select2('data');
+                sInitial.map(entries => {
+                    initialSelected.push(entries.text);
+                });
+            });
+
+            // Append the new selection
             $(this).parent().prev().after(`
                 <div class="fc-fields-container">
                     <div class="inner">
@@ -144,6 +155,18 @@
                     </div>
                 </div>
             `);
+
+            // Filter out the already selected
+            $('.fc-user-role.new option').each(function() {
+            let getOptions = $(this).val();
+                if($.inArray(getOptions, initialSelected) > -1) {
+                    console.log('In Array');
+                    $(this).remove();
+                } else {
+                    console.log('Not In Array');
+                }
+            })
+
             selectInit();
             getNewSelection();
         });
@@ -292,7 +315,7 @@
 
             if(uniqueOutput.length > 0) {
                 $('.fc-fields-container').remove();
-
+                
                 uniqueOutput.map(entries => {
                     $('.flashcard-settings-container > .inner').prepend(`
                         <div class="fc-fields-container with-selections">
