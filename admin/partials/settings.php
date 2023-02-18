@@ -389,7 +389,13 @@
                 // DB actions
                 let updateRole = async () => {
                     const url = `/wp-json/wp/v2/users?roles=${sRemoved}`;
-                    let res = await fetch(url);
+                    let res = await fetch(url, {
+                        method: "GET",
+                        headers: {
+                            'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
+                            'Content-Type': 'application/json',
+                        },
+                    });
                     return await res.json();
                 }
                 let renderRole = async () => {
