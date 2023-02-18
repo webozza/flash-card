@@ -139,7 +139,7 @@
             });
         }
 
-        $('.new-role-btn').click(function() {
+        $('.new-role-btn').click(async function() {
 
             // Store the initial selections
             $('.with-selections').each(function() {
