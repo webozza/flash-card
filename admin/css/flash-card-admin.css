@@ -141,10 +141,10 @@
 
 /* Preset Cards
 -----------------------------------------------*/
-ul.select2-selection__rendered img,
+/* ul.select2-selection__rendered img,
 .select2-results__option img {
   margin-right: 5px;
-  /* display: inline-block; */
+  display: inline-block;
   width: 60px;
   height: 60px;
-}
+} */
