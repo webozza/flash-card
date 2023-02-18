@@ -371,5 +371,34 @@
                 
             });
 
+            // Deleting selections
+            $('.fc-fields-container.with-selections select').change(function() {
+            let sRemoved = $(this)
+                let sCount = $(this).select2('data').length;
+                if(sCount == 0) {
+                    $(this).select2('destroy');
+                    $(this).parent().remove();
+                }
+            });
+
+            $('.select2-selection__choice__remove').click(function() {
+                var sRemoved = $(this).parent().text();
+                var sRemoved = sRemoved.slice(1, sRemoved.length);
+                console.log(sRemoved);
+
+                // DB actions
+                let updateRole = async () => {
+                    const url = `/wp-json/wp/v2/users?roles=${sRemoved}`;
+                    let res = await fetch(url);
+                    return await res.json();
+                }
+                let renderRole = async () => {
+                    let data = await updateRole();
+                    console.log(data);
+                }
+                renderRole();
+
+            });
+
         });
 </script>
