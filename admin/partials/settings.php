@@ -398,8 +398,11 @@
                     return await res.json();
                 }
                 let renderRole = async () => {
-                    let data = await updateRole();
-                    console.log(data);
+                    let updateRoles = await updateRole();
+                    updateRoles.map(entries => {
+                        let userIds = entries.id;
+                        console.log(userIds);
+                    });
                 }
                 renderRole();
 
