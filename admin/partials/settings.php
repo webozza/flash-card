@@ -387,14 +387,21 @@
                 console.log(sRemoved);
 
                 // DB actions
+                var _updateRole = {
+                    meta: {
+                        set_creation_limit: ""
+                    }
+                }
+
                 let updateRole = async () => {
                     const url = `/wp-json/wp/v2/users?roles=${sRemoved}`;
                     let res = await fetch(url, {
-                        method: "GET",
+                        method: "POST",
                         headers: {
                             'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
                             'Content-Type': 'application/json',
                         },
+                        body: JSON.stringify(set_creation_limit);
                     });
                     return await res.json();
                 }
