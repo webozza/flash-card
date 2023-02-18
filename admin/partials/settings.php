@@ -130,10 +130,11 @@
         }
         selectInit();
 
+        let initialSelected = [];
+
         $('.new-role-btn').click(function() {
 
             // Store the initial selections
-            let initialSelected = [];
             $('.with-selections').each(function() {
                 let sInitial = $(this).find('select').select2('data');
                 sInitial.map(entries => {
@@ -160,8 +161,6 @@
             $('.fc-user-role.new option').each(function() {
             let getOptions = $(this).val();
                 if($.inArray(getOptions, initialSelected) > -1) {
-                    initialSelected.push($(this).val());
-                    console.log(initialSelected);
                     $(this).remove();
                 } else {
                     // do nothing for now...
@@ -170,6 +169,8 @@
 
             selectInit();
             getNewSelection();
+
+            console.log(initialSelected);
         });
 
         // Initial Select Box
