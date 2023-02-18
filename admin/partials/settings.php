@@ -161,6 +161,7 @@
             let getOptions = $(this).val();
                 if($.inArray(getOptions, initialSelected) > -1) {
                     initialSelected.push($(this).val());
+                    console.log(initialSelected);
                     $(this).remove();
                 } else {
                     // do nothing for now...
