@@ -16,7 +16,7 @@
  * Plugin Name:       Flash Card
  * Plugin URI:        https://github.com/webozza/wp-plugins/flashcard
  * Description:       Custom flash card plugin developed by @webozza
- * Version:           27.8.5
+ * Version:           27.8.6
  * Author:            Webozza
  * Author URI:        https://webozza.com
  * License:           GPL-2.0+
