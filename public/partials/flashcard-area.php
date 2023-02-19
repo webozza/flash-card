@@ -243,7 +243,7 @@ global $post;
 <?php endif; ?>
 
 <!-----------------------------------------------
-    EDIT SET 
+    EDIT SET
 ----------------------------------------------->
 <?php if( isset($_GET['edit-set']) && get_post_type( $_GET['edit-set'] ) == 'portfolio_sets' ) : ?>
 
@@ -401,6 +401,8 @@ global $post;
         <?php endwhile; ?>
         <div class="set-cards">
 
+<?php if( isset($_GET['edit-set']) && get_post_type( $_GET['edit-set'] ) == 'post' ) : ?>
+    <h3>You're not allowed to edit this post</h3>
 
 
 <!-- PRESET CARDS 
