@@ -61,7 +61,7 @@
 
     var _updateSetMetas = {
       meta: {
-        featured_set: "",
+        featured_set: [],
         status: "publish",
       },
     };
@@ -90,7 +90,7 @@
         var checkbox = $(this).find("input");
         if (checkbox[0].checked == true) {
           checkbox.attr("checked", "");
-          _updateSetMetas.meta.featured_set = "true";
+          _updateSetMetas.meta.featured_set = ["true"];
         } else {
           checkbox.removeAttr("checked", "");
           _updateSetMetas.meta.featured_set = "false";
