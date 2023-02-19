@@ -30,6 +30,75 @@
       });
     };
 
+    /* All Sets Backend Edit Page
+     * ---------------------------------------------------------------------*/
+    let fetchAllSets = async () => {
+      const url = `/wp-json/wp/v2/portfolio_sets`;
+      let res = await fetch(url);
+      return await res.json();
+    };
+
+    let checkAllSets = async () => {
+      let allSets = await fetchAllSets();
+      if ($(".no-items").length !== 1) {
+        $(".wp-list-table thead tr").append("<th>Featured</th>");
+        $("#the-list tr").append(
+          "<td><span class='featured-set-checkbox'><input class='star' type='checkbox'></span></td>"
+        );
+      }
+
+      allSets.map((entries) => {
+        if (entries.meta.featured_set[0] == "true") {
+          var findFeaturedSets = entries.id;
+          $(
+            `#the-list tr[id='post-${findFeaturedSets}'] td:last-child input`
+          ).attr("checked", "");
+        }
+      });
+
+      updateSetMetas();
+    };
+
+    var _updateSetMetas = {
+      meta: {
+        featured_set: "",
+      },
+    };
+
+    var updateSetId;
+    let getSet = async () => {
+      const url = `/wp-json/wp/v2/portfolio_sets/${updateSetId}`;
+      let res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "X-WP-Nonce": flashcardSettings.nonce,
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(_updateSetMetas),
+      });
+      return await res.json();
+    };
+
+    let updateSet = async () => {
+      let updateSet = await getSet();
+      console.log(updateSet);
+    };
+
+    let updateSetMetas = async () => {
+      $(".featured-set-checkbox").on("click", function () {
+        var checkbox = $(this).find("input");
+        if (checkbox[0].checked == true) {
+          checkbox.attr("checked", "");
+          _updateSetMetas.meta.featured_set = "true";
+        } else {
+          checkbox.removeAttr("checked", "");
+          _updateSetMetas.meta.featured_set = "false";
+        }
+        updateSetId = checkbox.parent().parent().parent().attr("id").slice(5);
+        updateSet();
+      });
+    };
+
     /* Get all users and set owner
      * ---------------------------------------------------------------------*/
 
