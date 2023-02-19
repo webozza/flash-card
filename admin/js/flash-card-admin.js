@@ -70,7 +70,7 @@
     let getSet = async () => {
       const url = `/wp-json/wp/v2/portfolio_sets/${updateSetId}`;
       let res = await fetch(url, {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify(_updateSetMetas),
         headers: {
           "X-WP-Nonce": flashcardSettings.nonce,
