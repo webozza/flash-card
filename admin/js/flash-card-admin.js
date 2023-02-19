@@ -62,7 +62,7 @@
     var _updateSetMetas = {
       meta: {
         featured_set: "",
-        status: "publish",
+        // status: "publish",
       },
     };
 
@@ -71,11 +71,11 @@
       const url = `/wp-json/wp/v2/portfolio_sets/${updateSetId}`;
       let res = await fetch(url, {
         method: "POST",
-        body: JSON.stringify(_updateSetMetas),
         headers: {
           "X-WP-Nonce": flashcardSettings.nonce,
           "Content-type": "application/json; charset=UTF-8",
         },
+        body: JSON.stringify(_updateSetMetas),
       });
       return await res.json();
     };
