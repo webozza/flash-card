@@ -61,8 +61,7 @@
 
     var _updateSetMetas = {
       meta: {
-        featured_set: [],
-        status: "publish",
+        featured_set: "",
       },
     };
 
@@ -70,7 +69,7 @@
     let getSet = async () => {
       const url = `/wp-json/wp/v2/portfolio_sets/${updateSetId}`;
       let res = await fetch(url, {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "X-WP-Nonce": flashcardSettings.nonce,
           "Content-type": "application/json; charset=UTF-8",
@@ -90,10 +89,10 @@
         var checkbox = $(this).find("input");
         if (checkbox[0].checked == true) {
           checkbox.attr("checked", "");
-          _updateSetMetas.meta.featured_set = ["true"];
+          _updateSetMetas.meta.featured_set = "true";
         } else {
           checkbox.removeAttr("checked", "");
-          _updateSetMetas.meta.featured_set = ["false"];
+          _updateSetMetas.meta.featured_set = "false";
         }
         updateSetId = checkbox.parent().parent().parent().attr("id").slice(5);
         updateSet();
