@@ -48,7 +48,7 @@
       }
 
       allSets.map((entries) => {
-        if (entries.meta.featured_set[0] == "true") {
+        if (entries.meta.featured_set == "true") {
           var findFeaturedSets = entries.id;
           $(
             `#the-list tr[id='post-${findFeaturedSets}'] td:last-child input`
