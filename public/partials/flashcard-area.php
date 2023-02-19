@@ -245,7 +245,7 @@ global $post;
 <!-----------------------------------------------
     EDIT SET 
 ----------------------------------------------->
-<?php if( isset($_GET['edit-set']) && is_singular( 'portfolio_sets' ) ) : ?>
+<?php if( isset($_GET['edit-set']) && get_post_type( $_GET['edit-set'] ) == 'portfolio_sets' ) : ?>
 
     <script type="text/javascript">
         var setId = '<?= $_GET['edit-set'] ?>';
