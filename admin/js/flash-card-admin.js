@@ -62,7 +62,7 @@
     var _updateSetMetas = {
       meta: {
         featured_set: "",
-        // status: "publish",
+        status: "publish",
       },
     };
 
@@ -82,6 +82,7 @@
 
     let updateSet = async () => {
       let updateSet = await getSet();
+      console.log(updateSet);
     };
 
     let updateSetMetas = async () => {
@@ -89,7 +90,7 @@
         var checkbox = $(this).find("input");
         if (checkbox[0].checked == true) {
           checkbox.attr("checked", "");
-          _updateSetMetas.meta.featured_set = true;
+          _updateSetMetas.meta.featured_set = "true";
         } else {
           checkbox.removeAttr("checked", "");
           _updateSetMetas.meta.featured_set = "false";
