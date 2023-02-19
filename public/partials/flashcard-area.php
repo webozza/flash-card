@@ -401,9 +401,6 @@ global $post;
         <?php endwhile; ?>
         <div class="set-cards">
 
-<?php if( isset($_GET['edit-set']) && get_post_type( $_GET['edit-set'] ) == 'post' ) : ?>
-    <h3>You're not allowed to edit this post</h3>
-
 
 <!-- PRESET CARDS 
 -------------------------------------------------------------------------------->
@@ -517,5 +514,13 @@ global $post;
 </div>
 
 <?php } ?>
+<?php wp_reset_postdata(); ?>
+<?php endif; ?>
+
+
+<!-- IF SOMEONE TRIES TO EDIT A NORMAL POST DIRECTLY -->
+<?php if( isset($_GET['edit-set']) && get_post_type( $_GET['edit-set'] ) == 'post' ) : ?>
+    <h3>You're not allowed to edit this post</h3>
+    <?php } ?>
 <?php wp_reset_postdata(); ?>
 <?php endif; ?>
