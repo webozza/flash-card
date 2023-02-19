@@ -93,7 +93,7 @@
           _updateSetMetas.meta.featured_set = ["true"];
         } else {
           checkbox.removeAttr("checked", "");
-          _updateSetMetas.meta.featured_set = "false";
+          _updateSetMetas.meta.featured_set = ["false"];
         }
         updateSetId = checkbox.parent().parent().parent().attr("id").slice(5);
         updateSet();
