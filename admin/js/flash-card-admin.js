@@ -89,7 +89,7 @@
         var checkbox = $(this).find("input");
         if (checkbox[0].checked == true) {
           checkbox.attr("checked", "");
-          _updateSetMetas.meta.featured_set[0] = "true";
+          _updateSetMetas.meta.featured_set = "true";
         } else {
           checkbox.removeAttr("checked", "");
           _updateSetMetas.meta.featured_set = "false";
