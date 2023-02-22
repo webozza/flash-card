@@ -16,7 +16,7 @@
 
 <?php
     $setownerid = get_current_user_id();
-    $usersetlimit = get_user_meta($setownerid, 'set_creation_limit');
+    $usersetlimit = get_user_meta($setownerid, 'set_creation_limit')[0];
     $usersetcount = count_user_posts($setownerid, 'portfolio_sets')[0];
 
     // echo 'user creation limit = ' . $usersetlimit;
