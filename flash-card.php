@@ -16,7 +16,7 @@
  * Plugin Name:       Flash Card
  * Plugin URI:        https://github.com/webozza/wp-plugins/flashcard
  * Description:       Custom flash card plugin developed by @webozza
- * Version:           27.9.4
+ * Version:           27.9.5
  * Author:            Webozza
  * Author URI:        https://webozza.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLASH_CARD_VERSION', '27.9.4' );
+define( 'FLASH_CARD_VERSION', '27.9.5' );
 
 /**
  * The code that runs during plugin activation.
@@ -192,8 +192,8 @@ function single_scripts() {
 
 	if (is_user_logged_in()) {
 		$setownerid = get_current_user_id();
+		var_dump(get_user_meta($setownerid, 'set_creation_limit'));
 		$usersetlimit = get_user_meta($setownerid, 'set_creation_limit')[0];
-		echo $usersetlimit;
 		$usersetcount = count_user_posts($setownerid, 'portfolio_sets')[0];
 
 		if ( is_singular('post') && ($usersetcount < $usersetlimit || $usersetlimit == "") ) {
