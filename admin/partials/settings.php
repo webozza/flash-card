@@ -115,6 +115,11 @@
         </div>
 
     </div>
+    <form class="backend-settings-form" style="display:none" action="" method="post">
+        <input type="hidden" name="roles" value="">
+        <input type="hidden" name="backend_settings" value="1"/> 
+        <button type="submit"></button>
+    </form>
 </div>
 
 <script>
