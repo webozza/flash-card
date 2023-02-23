@@ -107,4 +107,12 @@
     }
     add_action('init', 'save_new_custom_cards');
 
+    // Retrieve settings and process query on server
+    function update_settings() {
+        if(isset($_POST['backend_settings']) == '1') {
+            
+        }
+    }
+    add_action('init', 'update_settings');
+
 ?>
