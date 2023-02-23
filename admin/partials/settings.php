@@ -402,7 +402,7 @@
 
                 let redirectLink = $('#duplicate_redirect :selected').data('guid');
                 $('[name="redirection_page"]').val(redirectLink);
-                
+                $('.backend-settings-form').submit();
             });
 
             // Deleting selections
