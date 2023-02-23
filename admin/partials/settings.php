@@ -341,6 +341,12 @@
                             <input type="number" placeholder="set limit" value="${entries.setLimit}" />
                             <input type="hidden" class="selected-values" value="${entries.roles}" />
                             <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
+                            <form class="backend-settings-form" style="display:none" action="" method="post">
+                                <input type="hidden" name="selections" value="">
+                                <input type="hidden" name="set_limit" value="">
+                                <input type="hidden" name="backend_settings" value="1"/> 
+                                <button type="submit"></button>
+                            </form>
                         </div>
                     `);
                     $('.has-selected').select2();
