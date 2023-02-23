@@ -367,38 +367,41 @@
             renderEndPoint();
 
             // Post Redirect Link
-            var _fcsettings = {
-                duplicate_redirect_link: "",
-            }
+            // var _fcsettings = {
+            //     duplicate_redirect_link: "",
+            // }
 
-            let fetchSettings = async () => {
-                const url = `/wp-json/wp/v2/flashcard`;
-                let res = await fetch(url, {
-                    method: "POST",
-                    headers: {
-                        'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(_fcsettings)
-                });
-                return await res.json();
-            }
+            // let fetchSettings = async () => {
+            //     const url = `/wp-json/wp/v2/flashcard`;
+            //     let res = await fetch(url, {
+            //         method: "POST",
+            //         headers: {
+            //             'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
+            //             'Content-Type': 'application/json',
+            //         },
+            //         body: JSON.stringify(_fcsettings)
+            //     });
+            //     return await res.json();
+            // }
 
-            let postSettings = async () => {
-                let flashcardSettings = await fetchSettings();
-            }
+            // let postSettings = async () => {
+            //     let flashcardSettings = await fetchSettings();
+            // }
 
             $('#duplicate_redirect').select2();
             $('#duplicate_redirect').val('<?= $redirectid ?>').trigger('change')
 
             $('#save-settings-btn').click(async function() {
                 
-                $('.success-msg').fadeIn('slow').delay('1500').fadeOut();
-                $('.fc-save-each').trigger('click');
-                _fcsettings.duplicate_redirect_link = $('#duplicate_redirect :selected').data('guid');
-                _fcsettings.duplicate_redirect_id = $('#duplicate_redirect :selected').val();
-                _fcsettings.duplicate_redirect_slug = $('#duplicate_redirect :selected').data('slug');
-                await postSettings();
+                // $('.success-msg').fadeIn('slow').delay('1500').fadeOut();
+                // $('.fc-save-each').trigger('click');
+                // _fcsettings.duplicate_redirect_link = $('#duplicate_redirect :selected').data('guid');
+                // _fcsettings.duplicate_redirect_id = $('#duplicate_redirect :selected').val();
+                // _fcsettings.duplicate_redirect_slug = $('#duplicate_redirect :selected').data('slug');
+                // await postSettings();
+
+                let redirectLink = $('#duplicate_redirect :selected').data('guid');
+                $('[name="redirection_page"]').val(redirectLink);
                 
             });
 
