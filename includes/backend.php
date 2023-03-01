@@ -115,6 +115,7 @@
                 'duplicate_redirect_link' => $_POST['redirect_link'],
                 'duplicate_redirect_id' => $_POST['redirect_id'],
                 'duplicate_redirect_slug' => $_POST['redirect_slug'],
+                'roles_selected' => $_POST['selection_limits'],
             ));
         }
     }
