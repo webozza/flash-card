@@ -522,7 +522,7 @@
                     });
                     console.log('pushToFinalDB ->', pushFinalToDB);
                 });
-                $('.backend-settings-form input[name="selection_limits"]').val({pushFinalToDB});
+                $('.backend-settings-form input[name="selection_limits"]').val([pushFinalToDB]);
                 //$('.backend-settings-form').submit();
             });
 
