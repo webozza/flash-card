@@ -119,7 +119,7 @@
 
         <form class="backend-settings-form" style="display:none" action="" method="post">
             <input type="hidden" name="selection_limits" value="">
-            <input type="hidden" name="redirection_slug" value="">
+            <input type="hidden" name="redirect_slug" value="">
             <input type="hidden" name="redirect_id" value="">
             <input type="hidden" name="redirect_link" value="">
             <input type="hidden" name="backend_settings" value="1"/> 
