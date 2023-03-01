@@ -508,6 +508,23 @@
                 });
             }
 
+            // Push the final selection values to form for retreiving it on server
+            let pushFinalToDB = [];
+            $('.flashcard-settings-container .publish-save').click(function() {
+                pushFinalToDB = [];
+                $('.fc-fields-container').map(async function() {
+                    let eachSet = $(this);
+                    let finalSelections = eachSet.find('input[name="selections"]').val();
+                    let finalLimits = eachSet.find('input[name="set_limit"]').val();
+                    pushFinalToDB.push({
+                        roles: finalSelections,
+                        set_limit: finalLimits
+                    });
+                });
+                $('.backend-settings-form input[name="selection_limits"]').val(pushFinalToDB);
+                $('.backend-settings-form').submit();
+            });
+
 
 
         });
