@@ -66,6 +66,7 @@
     var_dump($getoptions);
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
+    echo strlen($get_options['roles_selected']);
 ?>
 
 <div class="wrap">
