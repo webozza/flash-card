@@ -179,6 +179,7 @@
 
             selectInit();
             getNewSelection();
+            handleSelectionChange();
         });
 
 
@@ -465,18 +466,24 @@
             });
 
             // Handles change on selection of roles
-            $('.fc-fields-container select').change(function() {
-                let selections = $(this).find(':selected').map(function() {
-                    return $(this).text();
-                }).get().join(',');
-                $(this).parent().parent().find('input[name="selections"]').val(selections);
-            });
+            let handleSelectionChange = () => {
+                $('.fc-fields-container select').change(function() {
+                    let selections = $(this).find(':selected').map(function() {
+                        return $(this).text();
+                    }).get().join(',');
+                    $(this).parent().parent().find('input[name="selections"]').val(selections);
+                });
+            }
+            handleSelectionChange();
+            
+            // Handles change on set limit by roles
+            let handleSetLimitChange = () => {
+                $('.fc-fields-container input[type="number"]').change(function() {
+                    let setLimitVal = $(this).val();
+                    $(this).parent().find('input[name="set_limit"]').val(setLimitVal);
+                });
+            }
 
-            // Handles change on set limits
-            $('.fc-fields-container .inner > input[type="number"]').change(function() {
-                let setlimit = $(this).val();
-                $(this).parent().parent().find('input[name="set_limit"]').val(setlimit);
-            });
 
 
         });
