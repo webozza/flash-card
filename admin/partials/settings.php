@@ -84,12 +84,8 @@
                     <input type="number" placeholder="set limit" value="" />
                     <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
                 </div>
-                <form class="backend-settings-form" style="display:none" action="" method="post">
-                    <input type="hidden" name="selections" value="">
-                    <input type="hidden" name="set_limit" value="">
-                    <input type="hidden" name="backend_settings" value="1"/> 
-                    <button type="submit"></button>
-                </form>
+                <input type="hidden" name="selections" value="">
+                <input type="hidden" name="set_limit" value="">
             </div>
 
             <div class="new-role-btn-wrapper">
@@ -119,6 +115,12 @@
             </div>
 
         </div>
+
+        <form class="backend-settings-form" style="display:none" action="" method="post">
+            <input type="hidden" name="selection_limits" value="">
+            <input type="hidden" name="backend_settings" value="1"/> 
+            <button type="submit"></button>
+        </form>
 
     </div>
 </div>
@@ -160,12 +162,8 @@
                         <input type="number" placeholder="set limit" value="" />
                         <a class="fc-save-each new" style="display:none;" href="javascript:void(0)">Save</a>
                     </div>
-                    <form class="backend-settings-form" style="display:none" action="" method="post">
-                        <input type="hidden" name="selections" value="">
-                        <input type="hidden" name="set_limit" value="">
-                        <input type="hidden" name="backend_settings" value="1"/> 
-                        <button type="submit"></button>
-                    </form>
+                    <input type="hidden" name="selections" value="">
+                    <input type="hidden" name="set_limit" value="">
                 </div>
             `);
 
@@ -341,12 +339,8 @@
                             <input type="number" placeholder="set limit" value="${entries.setLimit}" />
                             <input type="hidden" class="selected-values" value="${entries.roles}" />
                             <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
-                            <form class="backend-settings-form" style="display:none" action="" method="post">
-                                <input type="hidden" name="selections" value="">
-                                <input type="hidden" name="set_limit" value="">
-                                <input type="hidden" name="backend_settings" value="1"/> 
-                                <button type="submit"></button>
-                            </form>
+                            <input type="hidden" name="selections" value="">
+                            <input type="hidden" name="set_limit" value="">
                         </div>
                     `);
                     $('.has-selected').select2();
@@ -469,6 +463,21 @@
                 renderRole();
 
             });
+
+            // Handles change on selection of roles
+            $('.fc-fields-container select').change(function() {
+                let selections = $(this).find(':selected').map(function() {
+                    return $(this).text();
+                }).get().join(',');
+                $(this).parent().parent().find('input[name="selections"]').val(selections);
+            });
+
+            // Handles change on set limits
+            $('.fc-fields-container .inner > input[type="number"]').change(function() {
+                let setlimit = $(this).val();
+                $(this).parent().parent().find('input[name="set_limit"]').val(setlimit);
+            });
+
 
         });
 </script>
