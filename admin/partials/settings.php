@@ -282,77 +282,77 @@
             });
         }
 
-            // render saved selections
-            let savedSelections = [];
+            // // render saved selections
+            // let savedSelections = [];
             
-            let fetchSaved = async () => {
-                const url = `/wp-json/wp/v2/users/?per_page=100`;
-                let res = await fetch(url, {
-                    method: "GET",
-                    headers: {
-                        'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
-                        'Content-Type': 'application/json',
-                    },
-                });
-                return await res.json();
-            }
-            let renderSaved = async () => {
-                let savedLimits = await fetchSaved();
-                savedLimits.map((entries) => {
-                    if(entries.meta.set_creation_limit !== '') {
-                        savedSelections.push({
-                            roles: entries.roles,
-                            setLimit: entries.meta.set_creation_limit
-                        });
-                    }
-                });
-            }
+            // let fetchSaved = async () => {
+            //     const url = `/wp-json/wp/v2/users/?per_page=100`;
+            //     let res = await fetch(url, {
+            //         method: "GET",
+            //         headers: {
+            //             'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
+            //             'Content-Type': 'application/json',
+            //         },
+            //     });
+            //     return await res.json();
+            // }
+            // let renderSaved = async () => {
+            //     let savedLimits = await fetchSaved();
+            //     savedLimits.map((entries) => {
+            //         if(entries.meta.set_creation_limit !== '') {
+            //             savedSelections.push({
+            //                 roles: entries.roles,
+            //                 setLimit: entries.meta.set_creation_limit
+            //             });
+            //         }
+            //     });
+            // }
             
-            await renderSaved();
+            // await renderSaved();
 
-            let uniqueRoles = [];
+            // let uniqueRoles = [];
             
-            const output = Object.values(
-                savedSelections.reduce((res, o) => {
-                    if (!res[o.setLimit]) {
-                        res[o.setLimit] = { ...o, roles: [] };
-                    }
-                    res[o.setLimit].roles.push(...o.roles);
-                    return res;
-                }, {})
-            );
+            // const output = Object.values(
+            //     savedSelections.reduce((res, o) => {
+            //         if (!res[o.setLimit]) {
+            //             res[o.setLimit] = { ...o, roles: [] };
+            //         }
+            //         res[o.setLimit].roles.push(...o.roles);
+            //         return res;
+            //     }, {})
+            // );
 
-            let uniqueOutput = [];
+            // let uniqueOutput = [];
 
-            output.map(entries => {
-                uniqueOutput.push({
-                    roles: [...new Set(entries.roles)],
-                    setLimit: entries.setLimit
-                })
-            });
+            // output.map(entries => {
+            //     uniqueOutput.push({
+            //         roles: [...new Set(entries.roles)],
+            //         setLimit: entries.setLimit
+            //     })
+            // });
 
-            if(uniqueOutput.length > 0) {
-                $('.fc-fields-container').remove();
+            // if(uniqueOutput.length > 0) {
+            //     $('.fc-fields-container').remove();
                 
-                uniqueOutput.map(entries => {
-                    $('.flashcard-settings-container > .inner').prepend(`
-                        <div class="fc-fields-container with-selections">
-                            <select multiple class="fc-user-role has-selected">
-                                <?php foreach($roles_names_array as $role_name) { ?>
-                                    <option value="<?= strtolower($role_name) ?>"><?= $role_name ?></option>
-                                <?php } ?>
-                            </select>
-                            <input type="number" placeholder="set limit" value="${entries.setLimit}" />
-                            <input type="hidden" class="selected-values" value="${entries.roles}" />
-                            <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
-                            <input type="hidden" name="selections" value="">
-                            <input type="hidden" name="set_limit" value="">
-                        </div>
-                    `);
-                    $('.has-selected').select2();
-                });
-                getSelections();
-            }
+            //     uniqueOutput.map(entries => {
+            //         $('.flashcard-settings-container > .inner').prepend(`
+            //             <div class="fc-fields-container with-selections">
+            //                 <select multiple class="fc-user-role has-selected">
+            //                     <?php foreach($roles_names_array as $role_name) { ?>
+            //                         <option value="<?= strtolower($role_name) ?>"><?= $role_name ?></option>
+            //                     <?php } ?>
+            //                 </select>
+            //                 <input type="number" placeholder="set limit" value="${entries.setLimit}" />
+            //                 <input type="hidden" class="selected-values" value="${entries.roles}" />
+            //                 <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
+            //                 <input type="hidden" name="selections" value="">
+            //                 <input type="hidden" name="set_limit" value="">
+            //             </div>
+            //         `);
+            //         $('.has-selected').select2();
+            //     });
+            //     getSelections();
+            // }
 
             // the final selection
             $('.has-selected').each(function() {
