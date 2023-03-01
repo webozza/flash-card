@@ -526,7 +526,7 @@
                 });
                 $('.backend-settings-form input[name="selection_limits"]').val(JSON.stringify(pushFinalToDB));
                 $('.backend-settings-form input[name="redirection_page"]').val(redirectLink);
-                //$('.backend-settings-form').submit();
+                $('.backend-settings-form').submit();
             });
 
 
