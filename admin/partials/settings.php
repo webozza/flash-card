@@ -63,6 +63,7 @@
     $roles_obj = new WP_Roles();
     $roles_names_array = $roles_obj->get_names();
     $getoptions = get_option('fc_rlink');
+    var_dump($getoptions);
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
 ?>
@@ -118,7 +119,7 @@
 
         <form class="backend-settings-form" style="display:none" action="" method="post">
             <input type="hidden" name="selection_limits" value="">
-            <input type="hidden" name="redirection_page" value="">
+            <input type="hidden" name="redirection_slug" value="">
             <input type="hidden" name="redirect_id" value="">
             <input type="hidden" name="redirect_link" value="">
             <input type="hidden" name="backend_settings" value="1"/> 
