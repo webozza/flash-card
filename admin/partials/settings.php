@@ -478,25 +478,35 @@
                 $(this).parent().find('input[name="set_limit"]').val(setLimitVal);
             });
 
-            // Handles change on selection of roles
+            $('.fc-fields-container select').change(function() {
+                let selections = $(this).find(':selected').map(function() {
+                    return $(this).text();
+                }).get().join(',');
+                $(this).parent().parent().find('input[name="selections"]').val(selections);
+            });
+
+            $('.fc-fields-container input[type="number"]').change(function() {
+                let setLimitVal = $(this).val();
+                $(this).parent().parent().find('input[name="set_limit"]').val(setLimitVal);
+            });
+
+            // Handles change on selection of roles for newly added selection
             let handleSelectionChange = () => {
-                $('.fc-fields-container select').change(function() {
+                $('.fc-fields-container').eq(-1).find('select').change(function() {
                     let selections = $(this).find(':selected').map(function() {
                         return $(this).text();
                     }).get().join(',');
                     $(this).parent().parent().find('input[name="selections"]').val(selections);
                 });
             }
-            handleSelectionChange();
             
-            // Handles change on set limit by roles
+            // Handles change on set limit by roles for newly added selection
             let handleSetLimitChange = () => {
-                $('.fc-fields-container input[type="number"]').change(function() {
+                $('.fc-fields-container').eq(-1).find('input[type="number"]').change(function() {
                     let setLimitVal = $(this).val();
                     $(this).parent().parent().find('input[name="set_limit"]').val(setLimitVal);
                 });
             }
-            handleSetLimitChange();
 
 
 
