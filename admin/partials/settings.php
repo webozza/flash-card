@@ -109,7 +109,7 @@
                 ?>
             </select>
 
-            <div class="publish-save" style="margin-top:30px">
+            <div class="publish-save" style="margin-top:30px; width:fit-content">
                 <a id="save-settings-btn" class="button button-primary button-large" href="javascript:void(0)">Save Settings</a>
                 <div style="display:none; padding: 3px;" class="success-msg">Success...</div>
             </div>
@@ -118,6 +118,7 @@
 
         <form class="backend-settings-form" style="display:none" action="" method="post">
             <input type="hidden" name="selection_limits" value="">
+            <input type="hidden" name="redirection_page" value="">
             <input type="hidden" name="backend_settings" value="1"/> 
             <button type="submit"></button>
         </form>
@@ -143,7 +144,7 @@
         $('.new-role-btn').click(async function() {
 
             // Store the initial selections
-            $('.fc-fields-container').each(function() {
+            $('.with-selections').each(function() {
                 let sInitial = $(this).find('select').select2('data');
                 sInitial.map(entries => {
                     initialSelected.push(entries.text);
@@ -511,6 +512,7 @@
             // Push the final selection values to form for retreiving it on server
             let pushFinalToDB = [];
             $('.flashcard-settings-container .publish-save').click(function() {
+                let redirectLink = $('select#duplicate_redirect').find(':selected').data('guid');
                 pushFinalToDB = [];
                 $('.fc-fields-container').map(async function() {
                     let eachSet = $(this);
@@ -523,6 +525,7 @@
                     console.log('pushToFinalDB ->', pushFinalToDB);
                 });
                 $('.backend-settings-form input[name="selection_limits"]').val(JSON.stringify(pushFinalToDB));
+                $('.backend-settings-form input[name="redirection_page"]').val(redirectLink);
                 $('.backend-settings-form').submit();
             });
 

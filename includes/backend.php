@@ -111,6 +111,7 @@
     function update_settings() {
         if(isset($_POST['backend_settings']) == '1') {
             var_dump($_POST['selection_limits']);
+            var_dump($_POST('redirection_page'));
         }
     }
     add_action('init', 'update_settings');
