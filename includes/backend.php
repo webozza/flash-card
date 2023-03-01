@@ -110,7 +110,7 @@
     // Retrieve settings and process query on server
     function update_settings() {
         if(isset($_POST['backend_settings']) == '1') {
-            echo $_POST['selection_limits'];
+            var_dump($_POST['selection_limits']);
         }
     }
     add_action('init', 'update_settings');
