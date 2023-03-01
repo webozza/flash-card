@@ -522,7 +522,7 @@
                     });
                 });
                 $('.backend-settings-form input[name="selection_limits"]').val(json_encode(pushFinalToDB));
-                $('.backend-settings-form').submit();
+                //$('.backend-settings-form').submit();
             });
 
 
