@@ -520,8 +520,9 @@
                         roles: finalSelections,
                         set_limit: finalLimits
                     });
+                    console.log('pushToFinalDB ->', pushFinalToDB);
                 });
-                $('.backend-settings-form input[name="selection_limits"]').val(json_encode(pushFinalToDB));
+                $('.backend-settings-form input[name="selection_limits"]').val({pushFinalToDB});
                 //$('.backend-settings-form').submit();
             });
 
