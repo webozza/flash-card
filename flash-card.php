@@ -16,7 +16,7 @@
  * Plugin Name:       Flash Card
  * Plugin URI:        https://github.com/webozza/wp-plugins/flashcard
  * Description:       Custom flash card plugin developed by @webozza
- * Version:           28.3.1
+ * Version:           28.3.2
  * Author:            Webozza
  * Author URI:        https://webozza.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLASH_CARD_VERSION', '28.3.1' );
+define( 'FLASH_CARD_VERSION', '28.3.2' );
 
 /**
  * The code that runs during plugin activation.
@@ -233,26 +233,26 @@ function override_single_template($single_template)
 
 /* Register Custom Endpoint for Flashcard Settings
  * ---------------------------------------------------------------------*/
-function fc_response($request){
-    $args = array(
-		'duplicate_redirect_link' => $request['duplicate_redirect_link'],
-		'duplicate_redirect_id' => $request['duplicate_redirect_id'],
-		'duplicate_redirect_slug' => $request['duplicate_redirect_slug'],
-	);
+// function fc_response($request){
+//     $args = array(
+// 		'duplicate_redirect_link' => $request['duplicate_redirect_link'],
+// 		'duplicate_redirect_id' => $request['duplicate_redirect_id'],
+// 		'duplicate_redirect_slug' => $request['duplicate_redirect_slug'],
+// 	);
 
-	if($request['duplicate_redirect_link'] !== null) {
-		update_option('fc_rlink', array(
-			'duplicate_redirect_link' => $request['duplicate_redirect_link'],
-			'duplicate_redirect_id' => $request['duplicate_redirect_id'],
-			'duplicate_redirect_slug' => $request['duplicate_redirect_slug']
-		));
-	}
+// 	if($request['duplicate_redirect_link'] !== null) {
+// 		update_option('fc_rlink', array(
+// 			'duplicate_redirect_link' => $request['duplicate_redirect_link'],
+// 			'duplicate_redirect_id' => $request['duplicate_redirect_id'],
+// 			'duplicate_redirect_slug' => $request['duplicate_redirect_slug']
+// 		));
+// 	}
 
-	$response = new WP_REST_Response($args);
-    $response->set_headers([ 'Cache-Control' => 'no-cache' ]);
+// 	$response = new WP_REST_Response($args);
+//     $response->set_headers([ 'Cache-Control' => 'no-cache' ]);
 
-    return $response;
-}
+//     return $response;
+// }
 
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'wp/v2', '/flashcard', array(
