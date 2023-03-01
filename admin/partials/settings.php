@@ -143,7 +143,7 @@
         $('.new-role-btn').click(async function() {
 
             // Store the initial selections
-            $('.with-selections').each(function() {
+            $('.fc-fields-container').each(function() {
                 let sInitial = $(this).find('select').select2('data');
                 sInitial.map(entries => {
                     initialSelected.push(entries.text);
