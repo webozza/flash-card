@@ -513,6 +513,8 @@
             let pushFinalToDB = [];
             $('.flashcard-settings-container .publish-save').click(function() {
                 let redirectLink = $('select#duplicate_redirect').find(':selected').data('guid');
+                let redirectId = $('select#duplicate_redirect').find(':selected').val();
+                let redirectSlug = $('select#duplicate_redirect').find(':selected').data('slug');
                 pushFinalToDB = [];
                 $('.fc-fields-container').map(async function() {
                     let eachSet = $(this);
@@ -525,7 +527,9 @@
                     console.log('pushToFinalDB ->', pushFinalToDB);
                 });
                 $('.backend-settings-form input[name="selection_limits"]').val(JSON.stringify(pushFinalToDB));
-                $('.backend-settings-form input[name="redirection_page"]').val(redirectLink);
+                $('.backend-settings-form input[name="redirect_link"]').val(redirectLink);
+                $('.backend-settings-form input[name="redirect_id"]').val(redirectId);
+                $('.backend-settings-form input[name="redirect_slug"]').val(redirectSlug);
                 $('.backend-settings-form').submit();
             });
 
