@@ -114,7 +114,7 @@
             update_option('fc_rlink', array(
                 'duplicate_redirect_link' => $_POST['redirect_link'],
                 'duplicate_redirect_id' => $_POST['redirect_id'],
-                'duplicate_redirect_slug' => $_POST['redirection_page'],
+                'duplicate_redirect_slug' => $_POST['redirect_slug'],
             ));
         }
     }
