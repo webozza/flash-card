@@ -466,6 +466,18 @@
 
             });
 
+            // Push the variables once on load
+            $('.fc-fields-container select').each(function() {
+                let selections = $(this).find(':selected').map(function() {
+                    return $(this).text();
+                }).get().join(',');
+                $(this).parent().parent().find('input[name="selections"]').val(selections);
+            });
+            $('.fc-fields-container input[type="number"]').each(function() {
+                let setLimitVal = $(this).val();
+                $(this).parent().find('input[name="set_limit"]').val(setLimitVal);
+            });
+
             // Handles change on selection of roles
             let handleSelectionChange = () => {
                 $('.fc-fields-container select').change(function() {
