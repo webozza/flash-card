@@ -484,6 +484,7 @@
                     $(this).parent().find('input[name="set_limit"]').val(setLimitVal);
                 });
             }
+            handleSetLimitChange();
 
 
 
