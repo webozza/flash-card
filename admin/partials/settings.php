@@ -180,6 +180,7 @@
             selectInit();
             getNewSelection();
             handleSelectionChange();
+            handleSetLimitChange();
         });
 
 
