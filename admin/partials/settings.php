@@ -493,7 +493,7 @@
             let handleSetLimitChange = () => {
                 $('.fc-fields-container input[type="number"]').change(function() {
                     let setLimitVal = $(this).val();
-                    $(this).parent().find('input[name="set_limit"]').val(setLimitVal);
+                    $(this).parent().parent().find('input[name="set_limit"]').val(setLimitVal);
                 });
             }
             handleSetLimitChange();
