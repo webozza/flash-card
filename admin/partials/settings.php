@@ -63,8 +63,9 @@
     $roles_obj = new WP_Roles();
     $roles_names_array = $roles_obj->get_names();
     $getoptions = get_option('fc_rlink');
-    $redirectid = $getoptions['duplicate_redirect_id'];
-    $redirectlink = $getoptions['duplicate_redirect_link'];
+    var_dump($getoptions);
+    // $redirectid = $getoptions['duplicate_redirect_id'];
+    // $redirectlink = $getoptions['duplicate_redirect_link'];
 ?>
 
 <div class="wrap">
