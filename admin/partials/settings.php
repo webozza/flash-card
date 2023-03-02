@@ -65,10 +65,7 @@
     $getoptions = get_option('fc_rlink');
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
-    // var_dump($get_options['roles_selected']);
-    $rolesSelected = $getoptions('roles_selected');
-    //$rolesSelected = wp_json_decode($rolesSelected);
-    echo $rolesSelected;
+    var_dump($get_options['roles_selected']);
 ?>
 
 <div class="wrap">
