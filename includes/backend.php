@@ -124,13 +124,12 @@
             foreach($rolesselectedarray as $selection) {
                 $rolesbyselection = explode (",", $selection->roles); 
                 var_dump($rolesbyselection);
-                // $args = array(
-                //     'role'    => $rolesbyselection,
-                //     'orderby' => 'user_nicename',
-                //     'order'   => 'ASC'
-                // );
-                // $users = get_users( $args );
-                // var_dump($users);
+                $args = array(
+                    'role'    => $rolesbyselection,
+                    'order'   => 'ASC'
+                );
+                $userstoupdate = new WP_Query($args);
+                var_dump($userstoupdate);
             }
         }
     }
