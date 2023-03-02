@@ -66,7 +66,9 @@
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
     // var_dump($get_options['roles_selected']);
-    var_dump($getoptions);
+    $rolesSelected = $getoptions('roles_selected');
+    $rolesSelected = wp_json_decode($rolesSelected);
+    var_dump($rolesSelected);
 ?>
 
 <div class="wrap">
