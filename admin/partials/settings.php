@@ -92,7 +92,7 @@
                         <input type="hidden" name="set_limit" value="">
                     <?php } else { ?>
                         <?php foreach($rolesselectedarray as $role) { ?>
-                            <?php var_dump($role['roles']) ?>
+                            <?php echo $role['roles'] ?>
                             <select multiple class="fc-user-role">
                                 <?php foreach($roles_names_array as $role_name) { ?>
                                     <option value="<?= $role_name ?>"><?= $role_name ?></option>
