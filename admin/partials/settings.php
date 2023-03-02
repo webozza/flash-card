@@ -416,6 +416,11 @@
             });
 
             // Set the final selection
+            $('.has-selected').each(function() {
+                var selected__roles = $(this).parent().find('[name="php_role_selections"]').val();
+                var selected__roles = selected__roles.split(',');
+                $(this).val(selected__roles).trigger('change');
+            });
 
             // Push the variables once on load
             $('.fc-fields-container select').each(function() {
