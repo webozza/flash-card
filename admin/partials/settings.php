@@ -68,7 +68,7 @@
     // var_dump($get_options['roles_selected']);
     $rolesSelected = $getoptions('roles_selected');
     //$rolesSelected = wp_json_decode($rolesSelected);
-    var_dump($rolesSelected);
+    echo $rolesSelected;
 ?>
 
 <div class="wrap">
