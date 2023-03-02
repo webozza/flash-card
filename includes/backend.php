@@ -118,10 +118,12 @@
                 'roles_selected' => $_POST['selection_limits'],
             ));
             // Update the set creation limit based on set options
-            $rolesselected = $getoptions['roles_selected'];
+            $rolesselected = $_POST['selection_limits'];
             $rolesselectedstripped = stripslashes($rolesselected);
             $rolesselectedarray = json_decode($rolesselectedstripped);
-            var_dump($rolesselectedarray);
+            foreach($rolesselectedarray as $selection) {
+                var_dump($selection);
+            }
         }
     }
     add_action('init', 'update_settings');
