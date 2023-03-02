@@ -491,11 +491,11 @@
 
 
             // Validates and removes empty containers
-            // $('.flashcard-settings-container .inner .fc-fields-container').each(function() {
-            //     if($(this).html().length == 46) {
-            //         $(this).remove();
-            //     }
-            // });
+            $('.flashcard-settings-container .inner .fc-fields-container').each(function() {
+                if($(this).html().length == 46) {
+                    $(this).remove();
+                }
+            });
 
 
 
