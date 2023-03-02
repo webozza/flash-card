@@ -65,8 +65,8 @@
     $getoptions = get_option('fc_rlink');
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
-    $rolesselected = $getoptions['roles_selected'];
-    $rolesselected = json_decode($rolesselected);
+    $encodedrolesselected = $getoptions['roles_selected'];
+    $rolesselected = json_decode($encodedrolesselected);
     var_dump($rolesselected);
 ?>
 
