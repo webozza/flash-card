@@ -66,8 +66,8 @@
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
     $rolesselected = $getoptions['roles_selected'];
-    $rolesselectedarray = stripslashes($rolesselected);
-    $rolesselectedarray = json_decode($rolesselectedarray);
+    $rolesselectedstripped = stripslashes($rolesselected);
+    $rolesselectedarray = json_decode($rolesselectedstripped);
     var_dump($rolesselectedarray);
 ?>
 
@@ -334,7 +334,7 @@
             //     })
             // });
 
-            let uniqueOutput = <?= $rolesselected ?>;
+            let uniqueOutput = <?= $rolesselectedstripped ?>;
             if(uniqueOutput.length > 0) {
                 $('.fc-fields-container').remove();
                 
