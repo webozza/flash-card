@@ -122,13 +122,14 @@
             $rolesselectedstripped = stripslashes($rolesselected);
             $rolesselectedarray = json_decode($rolesselectedstripped);
             foreach($rolesselectedarray as $selection) {
-                $args = array(
-                    'role'    => $selection->roles,
-                    'orderby' => 'user_nicename',
-                    'order'   => 'ASC'
-                );
-                $users = get_users( $args );
-                var_dump($users);
+                var_dump($selection);
+                // $args = array(
+                //     'role'    => $selection->roles,
+                //     'orderby' => 'user_nicename',
+                //     'order'   => 'ASC'
+                // );
+                // $users = get_users( $args );
+                // var_dump($users);
             }
         }
     }
