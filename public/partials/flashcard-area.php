@@ -141,7 +141,12 @@ global $post;
             <span>You have exceeded your limit for creating sets....</span>
         <?php } ?>
 
-        <?php if($usersetcount <= $usersetlimit || $usersetlimit == "" || $usersetlimit != 0) { ?>
+        <?php 
+            echo $usersetcount;
+            echo '<br>';
+            echo $usersetlimit;
+        ?>
+        <?php if($usersetcount < $usersetlimit || $usersetlimit == "" || $usersetlimit != 0) { ?>
             <a id="createSet" href="<?= 'https://' . $shortcodepath . '?new-set'?>" class="button primary">
                 <span>Create Set</span>
             </a>
