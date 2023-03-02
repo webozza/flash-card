@@ -60,17 +60,6 @@ $setownerid = get_current_user_id();
 $usersetlimit = get_user_meta($setownerid, 'set_creation_limit')[0];
 $usersetcount = count_user_posts($setownerid, 'portfolio_sets')[0];
 
-// check current user role
-if( is_user_logged_in() ) {
-    $user = wp_get_current_user();
-    $roles = ( array ) $user->roles;
-    return $roles; // This returns an array
-    // Use this to return a single value
-    // return $roles[0];
-} else {
-    return array();
-}
-
 global $post;
 ?>
 
