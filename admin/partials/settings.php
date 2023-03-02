@@ -68,6 +68,7 @@
     $rolesselected = $getoptions['roles_selected'];
     echo $rolesselected;
     $rolesselectedarray = wp_json_encode($rolesselected);
+    var_dump($rolesselectedarray);
     var_dump(json_decode($rolesselectedarray));
 ?>
 
