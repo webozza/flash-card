@@ -16,9 +16,10 @@
 
 <?php
 $getallusers = wp_get_current_user();
-if ( in_array( 'none', (array) $getallusers->roles ) ) {
+if ( in_array( '', (array) $getallusers->roles ) ) {
     echo 'this use has the none role';
 }
+echo get_current_user_id();
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
