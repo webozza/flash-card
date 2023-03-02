@@ -94,9 +94,9 @@
                     </div>
                 </div>
             <?php } else { ?>
-                <div class="fc-fields-container">
-                    <div class="inner">
-                        <?php foreach($rolesselectedarray as $role) { ?>
+                <?php foreach($rolesselectedarray as $role) { ?>
+                    <div class="fc-fields-container">
+                        <div class="inner">
                             <select multiple class="fc-user-role">
                                 <?php foreach($roles_names_array as $role_name) { ?>
                                     <option value="<?= $role_name ?>"><?= $role_name ?></option>
