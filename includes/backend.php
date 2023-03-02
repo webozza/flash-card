@@ -129,7 +129,7 @@
                     'order'   => 'ASC'
                 );
                 $userstoupdate = new WP_Query($args);
-                var_dump($userstoupdate);
+                var_dump($userstoupdate->ID);
             }
         }
     }
