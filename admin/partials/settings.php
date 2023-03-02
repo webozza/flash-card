@@ -465,9 +465,21 @@
                 });
             }
 
+            // Remove if no roles selected on save
+            let removeIfNoRoles = async () => {
+                $('.fc-fields-container').each(function() {
+                    let selectFields = $(this).find('select');
+                    let checkRolesSelected = selectFields.find(':selected').val();
+                    if(checkRolesSelected == undefined) {
+                        selectFields.parent().parent().remove();
+                    }
+                });
+            } 
+
             // Push the final selection values to form for retreiving it on server
             let pushFinalToDB = [];
-            $('.flashcard-settings-container .publish-save').click(function() {
+            $('.flashcard-settings-container .publish-save').click(async function() {
+                await removeIfNoRoles();
                 let redirectLink = $('select#duplicate_redirect').find(':selected').data('guid');
                 let redirectId = $('select#duplicate_redirect').find(':selected').val();
                 let redirectSlug = $('select#duplicate_redirect').find(':selected').data('slug');
