@@ -16,7 +16,7 @@
 
 <?php
 $getallusers = wp_get_current_user();
-if ( in_array( 'Administrator', (array) $getallusers->roles ) ) {
+if ( in_array( 'administrator', (array) $getallusers->roles ) ) {
     echo 'this use has the none role';
 }
 ?>
