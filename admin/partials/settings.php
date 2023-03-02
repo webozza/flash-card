@@ -335,6 +335,7 @@
             // });
 
             let uniqueOutput = <?= $rolesselectedstripped ?>;
+            let uniqueRoles = [];
             console.log(uniqueOutput);
             if(uniqueOutput.length > 0) {
                 $('.fc-fields-container').remove();
@@ -355,19 +356,21 @@
                         </div>
                     `);
                     $('.has-selected').select2();
-                    // the final selection
-                    $('.has-selected').each(function() {
-                        var selected__roles = entries.roles;
-                        var selected_roles = selected__roles.split(',');
-                        const lower = selected_roles.map(entries => {
-                            return entries.toLowerCase();
-                        });
-                        console.log(lower);
-                        $(this).val(lower).trigger('change');
-                    });
+                    uniqueRoles.push(entries.roles);
                 });
                 getSelections();
             }
+
+            // the final selection
+            $('.has-selected').each(function() {
+                var selected__roles = uniqueRoles;
+                var selected_roles = selected__roles.split(',');
+                const lower = selected_roles.map(entries => {
+                    return entries.toLowerCase();
+                });
+                console.log(lower);
+                $(this).val(lower).trigger('change');
+            });
 
             // Check endpoint
             let checkEndPoint = async () => {
