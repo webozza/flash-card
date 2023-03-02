@@ -334,28 +334,29 @@
             //     })
             // });
 
-            // if(uniqueOutput.length > 0) {
-            //     $('.fc-fields-container').remove();
+            let uniqueOutput = <?= $rolesselected ?>;
+            if(uniqueOutput.length > 0) {
+                $('.fc-fields-container').remove();
                 
-            //     uniqueOutput.map(entries => {
-            //         $('.flashcard-settings-container > .inner').prepend(`
-            //             <div class="fc-fields-container with-selections">
-            //                 <select multiple class="fc-user-role has-selected">
-            //                     <?php foreach($roles_names_array as $role_name) { ?>
-            //                         <option value="<?= strtolower($role_name) ?>"><?= $role_name ?></option>
-            //                     <?php } ?>
-            //                 </select>
-            //                 <input type="number" placeholder="set limit" value="${entries.setLimit}" />
-            //                 <input type="hidden" class="selected-values" value="${entries.roles}" />
-            //                 <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
-            //                 <input type="hidden" name="selections" value="">
-            //                 <input type="hidden" name="set_limit" value="">
-            //             </div>
-            //         `);
-            //         $('.has-selected').select2();
-            //     });
-            //     getSelections();
-            // }
+                uniqueOutput.map(entries => {
+                    $('.flashcard-settings-container > .inner').prepend(`
+                        <div class="fc-fields-container with-selections">
+                            <select multiple class="fc-user-role has-selected">
+                                <?php foreach($roles_names_array as $role_name) { ?>
+                                    <option value="<?= strtolower($role_name) ?>"><?= $role_name ?></option>
+                                <?php } ?>
+                            </select>
+                            <input type="number" placeholder="set limit" value="${entries.setLimit}" />
+                            <input type="hidden" class="selected-values" value="${entries.roles}" />
+                            <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
+                            <input type="hidden" name="selections" value="">
+                            <input type="hidden" name="set_limit" value="">
+                        </div>
+                    `);
+                    $('.has-selected').select2();
+                });
+                getSelections();
+            }
 
             // the final selection
             $('.has-selected').each(function() {
