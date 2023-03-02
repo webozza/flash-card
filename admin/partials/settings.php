@@ -359,7 +359,7 @@
                     $('.has-selected').each(function() {
                         var selected__roles = entries.roles;
                         var selected_roles = selected__roles.split(',');
-                        $(this).val(selectedVals).trigger('change');
+                        $(this).val(selected_roles).trigger('change');
                     });
                 });
                 getSelections();
