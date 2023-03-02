@@ -78,9 +78,10 @@
 
         <div class="inner">
 
-            <div class="fc-fields-container">
-                <div class="inner">
-                    <?php if($getoptions['roles_selected'] == null) { ?>
+            
+            <?php if($getoptions['roles_selected'] == null) { ?>
+                <div class="fc-fields-container">
+                    <div class="inner">
                         <select multiple class="fc-user-role">
                             <?php foreach($roles_names_array as $role_name) { ?>
                                 <option value="<?= $role_name ?>"><?= $role_name ?></option>
@@ -90,9 +91,12 @@
                         <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
                         <input type="hidden" name="selections" value="">
                         <input type="hidden" name="set_limit" value="">
-                    <?php } else { ?>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <div class="fc-fields-container">
+                    <div class="inner">
                         <?php foreach($rolesselectedarray as $role) { ?>
-                            <?= $role->roles ?>
                             <select multiple class="fc-user-role">
                                 <?php foreach($roles_names_array as $role_name) { ?>
                                     <option value="<?= $role_name ?>"><?= $role_name ?></option>
@@ -100,13 +104,13 @@
                             </select>
                             <input type="number" placeholder="set limit" value="<?= $role->set_limit ?>" />
                             <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
-                            <input type="hidden" name="selections" value="">
+                            <input type="hidden" name="selections" value="<?= $role->roles ?>">
                             <input type="hidden" name="set_limit" value="">
                         <?php } ?>
-                    <?php } ?>
+                    </div>
                 </div>
+            <?php } ?>
                 
-            </div>
 
             <div class="new-role-btn-wrapper">
                 <a class="new-role-btn button-primary" href="javascript:void(0)">
