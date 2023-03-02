@@ -135,7 +135,6 @@
                 $userstoupdate = get_users( array( 'role__in' => $rolesbyselection ) );
                 foreach($userstoupdate as $user) {
                     var_dump($user->ID);
-                    var_dump($user['ID']);
                 }
                 //update_user_meta($userstoupdate, 'set_creation_limit', $selection->set_limit)
             }
