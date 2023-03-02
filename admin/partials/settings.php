@@ -364,7 +364,8 @@
             // the final selection
             $('.has-selected').each(function() {
                 var selected__roles = uniqueRoles;
-                var selected_roles = selected__roles.split(',');
+                console.log(selected__roles);
+                // var selected_roles = selected__roles.split(',');
                 const lower = selected_roles.map(entries => {
                     return entries.toLowerCase();
                 });
