@@ -95,10 +95,9 @@
                 </div>
             <?php } else { ?>
                 <?php foreach($rolesselectedarray as $role) { ?>
-                    <?= $role->roles ?>
-                    <div class="fc-fields-container">
+                    <div class="fc-fields-container with-selections">
                         <div class="inner">
-                            <select multiple class="fc-user-role">
+                            <select multiple class="fc-user-role has-selected">
                                 <?php foreach($roles_names_array as $role_name) { ?>
                                     <option value="<?= $role_name ?>"><?= $role_name ?></option>
                                 <?php } ?>
@@ -415,6 +414,8 @@
                 renderRole();
 
             });
+
+            // Set the final selection
 
             // Push the variables once on load
             $('.fc-fields-container select').each(function() {
