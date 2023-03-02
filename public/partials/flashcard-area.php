@@ -15,11 +15,10 @@
 ?>
 
 <?php
-$getallusers = wp_get_current_user();
-if ( in_array( '', (array) $getallusers->roles ) ) {
-    echo 'this use has the none role';
-}
-echo get_current_user_id();
+$user = get_userdata( get_current_user_id() );
+$user_roles = $user->roles;
+var_dump($user_roles);
+
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
