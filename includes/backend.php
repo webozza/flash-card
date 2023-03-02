@@ -128,7 +128,7 @@
                     'order'   => 'ASC'
                 );
                 $users = get_users( $args );
-                var_dump($users->id);
+                var_dump($users);
             }
         }
     }
