@@ -86,16 +86,22 @@
                                 <option value="<?= $role_name ?>"><?= $role_name ?></option>
                             <?php } ?>
                         </select>
+                        <input type="number" placeholder="set limit" value="" />
+                        <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
+                        <input type="hidden" name="selections" value="">
+                        <input type="hidden" name="set_limit" value="">
                     <?php } else { ?>
-                        <?php foreach($rolesselectedarray as $role) {
-                            var_dump($role);
-                        } ?>
+                        <?php foreach($rolesselectedarray as $role) { ?>
+                            <?php var_dump($role['roles']) ?>
+                            <select multiple class="fc-user-role">
+                                <?php foreach($roles_names_array as $role_name) { ?>
+                                    <option value="<?= $role_name ?>"><?= $role_name ?></option>
+                                <?php } ?>
+                            </select>
+                        <?php } ?>
                     <?php } ?>
-                    <input type="number" placeholder="set limit" value="" />
-                    <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
                 </div>
-                <input type="hidden" name="selections" value="">
-                <input type="hidden" name="set_limit" value="">
+                
             </div>
 
             <div class="new-role-btn-wrapper">
