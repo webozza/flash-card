@@ -361,16 +361,18 @@
                 getSelections();
             }
 
+            console.log(uniqueRoles);
+
             // the final selection
-            $('.has-selected').each(function() {
-                var selected__roles = uniqueRoles;
-                console.log(selected__roles);
-                // var selected_roles = selected__roles.split(',');
-                const lower = selected__roles.map(entries => {
-                    return entries.toLowerCase();
-                });
-                $(this).val(lower).trigger('change');
-            });
+            // $('.has-selected').each(function() {
+            //     var selected__roles = uniqueRoles;
+            //     console.log(selected__roles);
+            //     // var selected_roles = selected__roles.split(',');
+            //     const lower = selected__roles.map(entries => {
+            //         return entries.toLowerCase();
+            //     });
+            //     $(this).val(lower).trigger('change');
+            // });
 
             // Check endpoint
             let checkEndPoint = async () => {
