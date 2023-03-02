@@ -95,6 +95,7 @@
                 </div>
             <?php } else { ?>
                 <?php foreach($rolesselectedarray as $role) { ?>
+                    <?= $role->roles ?>
                     <div class="fc-fields-container">
                         <div class="inner">
                             <select multiple class="fc-user-role">
