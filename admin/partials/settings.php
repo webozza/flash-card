@@ -65,6 +65,8 @@
     $getoptions = get_option('fc_rlink');
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
+
+    var_dump($getoptions);
     $rolesselected = $getoptions['roles_selected'];
     var_dump($rolesselected);
 ?>
