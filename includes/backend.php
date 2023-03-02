@@ -123,13 +123,14 @@
             $rolesselectedarray = json_decode($rolesselectedstripped);
             foreach($rolesselectedarray as $selection) {
                 $rolesbyselection = explode (",", $selection->roles); 
-                var_dump($rolesbyselection);
-                $args = array(
-                    'role'    => $rolesbyselection,
-                    'order'   => 'ASC'
-                );
-                $userstoupdate = new WP_Query($args);
-                var_dump($userstoupdate->ID);
+                // var_dump($rolesbyselection);
+                // $args = array(
+                //     'role'    => $rolesbyselection,
+                //     'order'   => 'ASC'
+                // );
+                // $userstoupdate = new WP_Query($args);
+                // var_dump($userstoupdate->ID);
+                var_dump(get_user_by('role', $rolesbyselection));
             }
         }
     }
