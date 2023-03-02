@@ -17,7 +17,7 @@
 <?php
 $user = get_userdata( get_current_user_id() );
 $user_roles = $user->roles;
-var_dump($user_roles);
+echo count($user_roles);
 
 ?>
 
