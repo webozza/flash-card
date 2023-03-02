@@ -87,8 +87,8 @@
                             <?php } ?>
                         </select>
                     <?php } else { ?>
-                        <?php foreach($entry as $rolesselectedarray) {
-                            var_dump($entry);
+                        <?php foreach($rolesselectedarray as $role) {
+                            var_dump($role);
                         } ?>
                     <?php } ?>
                     <input type="number" placeholder="set limit" value="" />
