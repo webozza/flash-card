@@ -110,12 +110,18 @@
     // Retrieve settings and process query on server
     function update_settings() {
         if(isset($_POST['backend_settings']) == '1') {
+            // Update my custom rest endpoint holding data
             update_option('fc_rlink', array(
                 'duplicate_redirect_link' => $_POST['redirect_link'],
                 'duplicate_redirect_id' => $_POST['redirect_id'],
                 'duplicate_redirect_slug' => $_POST['redirect_slug'],
                 'roles_selected' => $_POST['selection_limits'],
             ));
+            // Update the set creation limit based on set options
+            $rolesselected = $getoptions['roles_selected'];
+            $rolesselectedstripped = stripslashes($rolesselected);
+            $rolesselectedarray = json_decode($rolesselectedstripped);
+            var_dump($rolesselectedarray);
         }
     }
     add_action('init', 'update_settings');
