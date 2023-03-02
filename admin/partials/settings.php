@@ -335,7 +335,6 @@
             // });
 
             let uniqueOutput = <?= $rolesselectedstripped ?>;
-            let uniqueRoles = [];
             console.log(uniqueOutput);
             if(uniqueOutput.length > 0) {
                 $('.fc-fields-container').remove();
@@ -356,12 +355,9 @@
                         </div>
                     `);
                     $('.has-selected').select2();
-                    uniqueRoles.push(entries.roles);
                 });
                 getSelections();
             }
-
-            console.log(uniqueRoles);
 
             // the final selection
             // $('.has-selected').each(function() {
