@@ -366,7 +366,7 @@
                 var selected__roles = uniqueRoles;
                 console.log(selected__roles);
                 // var selected_roles = selected__roles.split(',');
-                const lower = selected_roles.map(entries => {
+                const lower = selected__roles.map(entries => {
                     return entries.toLowerCase();
                 });
                 $(this).val(lower).trigger('change');
