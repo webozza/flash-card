@@ -14,6 +14,13 @@
  */
 ?>
 
+<?php
+$user = wp_get_current_user();
+if ( in_array( 'none', (array) $user->roles ) ) {
+    echo 'this use has the none role'
+}
+?>
+
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <script type="text/javascript">
     var currentUserId = '<?= get_current_user_id() ?>';  
