@@ -134,9 +134,9 @@
 
                 $userstoupdate = get_users( array( 'role__in' => $rolesbyselection ) );
                 foreach($userstoupdate as $user) {
-                    echo $users->ID;
+                    echo $user->ID;
                 }
-                //update_user_meta($userstoupdate, 'set_creation_limit', $selection->)
+                //update_user_meta($userstoupdate, 'set_creation_limit', $selection->set_limit)
             }
         }
     }
