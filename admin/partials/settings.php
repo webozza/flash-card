@@ -87,7 +87,7 @@
                             <?php } ?>
                         </select>
                     <?php } else { ?>
-                        <?php foreach($entry as $$rolesselectedarray) {
+                        <?php foreach($entry as $rolesselectedarray) {
                             var_dump($entry);
                         } ?>
                     <?php } ?>
