@@ -17,7 +17,11 @@
 <?php
 $user = get_userdata( get_current_user_id() );
 $user_roles = $user->roles;
-echo count($user_roles);
+$userhasrole = count($user_roles);
+
+if($userhasrole == 0) {
+    update_user_meta(get_current_user_id(), 'set_creation_limit', '');
+}
 
 ?>
 

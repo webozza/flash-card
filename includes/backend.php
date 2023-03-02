@@ -129,6 +129,13 @@
                     update_user_meta($user->ID, 'set_creation_limit', $limitbyroles);
                 }
             }
+            // Check if users has no role
+            $user = get_userdata( get_current_user_id() );
+            $user_roles = $user->roles;
+            $userhasrole = count($user_roles);
+            if($userhasrole == 0) {
+                update_user_meta(get_current_user_id(), 'set_creation_limit', '');
+            }
         }
     }
     add_action('init', 'update_settings');
