@@ -106,9 +106,9 @@
                             <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
                             <input type="hidden" name="selections" value="<?= $role->roles ?>">
                             <input type="hidden" name="set_limit" value="">
-                        <?php } ?>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             <?php } ?>
                 
 
