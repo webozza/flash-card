@@ -110,7 +110,6 @@
     // Retrieve settings and process query on server
     function update_settings() {
         if(isset($_POST['backend_settings']) == '1') {
-            var_dump($_POST['selection_limits']);
             update_option('fc_rlink', array(
                 'duplicate_redirect_link' => $_POST['redirect_link'],
                 'duplicate_redirect_id' => $_POST['redirect_id'],
