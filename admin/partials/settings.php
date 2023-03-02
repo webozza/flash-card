@@ -369,7 +369,6 @@
                 const lower = selected_roles.map(entries => {
                     return entries.toLowerCase();
                 });
-                console.log(lower);
                 $(this).val(lower).trigger('change');
             });
 
