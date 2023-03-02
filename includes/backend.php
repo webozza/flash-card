@@ -122,7 +122,7 @@
             $rolesselectedstripped = stripslashes($rolesselected);
             $rolesselectedarray = json_decode($rolesselectedstripped);
             foreach($rolesselectedarray as $selection) {
-                var_dump($selection);
+                //var_dump($selection);
                 $rolesbyselection = explode (",", $selection->roles); 
                 // var_dump($rolesbyselection);
                 // $args = array(
@@ -134,7 +134,8 @@
 
                 $userstoupdate = get_users( array( 'role__in' => $rolesbyselection ) );
                 foreach($userstoupdate as $user) {
-                    echo $user->ID;
+                    var_dump($user->ID);
+                    var_dump($user['ID']);
                 }
                 //update_user_meta($userstoupdate, 'set_creation_limit', $selection->set_limit)
             }
