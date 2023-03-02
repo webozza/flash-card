@@ -66,9 +66,9 @@
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
     $rolesselected = $getoptions['roles_selected'];
-    $rolesselected = stripslashes($rolesselected);
-    $rolesselected = json_decode($rolesselected);
-    var_dump($rolesselected);
+    $rolesselectedarray = stripslashes($rolesselected);
+    $rolesselectedarray = json_decode($rolesselected);
+    var_dump($rolesselectedarray);
 ?>
 
 <div class="wrap">
@@ -80,11 +80,18 @@
 
             <div class="fc-fields-container">
                 <div class="inner">
-                    <select multiple class="fc-user-role">
-                        <?php foreach($roles_names_array as $role_name) { ?>
-                            <option value="<?= $role_name ?>"><?= $role_name ?></option>
-                        <?php } ?>
-                    </select>
+                    <?php if($rolesselected == null) { ?>
+                        <select multiple class="fc-user-role">
+                            <?php foreach($roles_names_array as $role_name) { ?>
+                                <option value="<?= $role_name ?>"><?= $role_name ?></option>
+                            <?php } ?>
+                        </select>
+                    <?php } else { ?>
+                        <?php foreach($roles as $rolesselected) {
+                            var_dump($roles);
+                        } ?>
+                    <?php } ?>
+                    
                     <input type="number" placeholder="set limit" value="" />
                     <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
                 </div>
