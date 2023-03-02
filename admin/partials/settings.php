@@ -98,6 +98,10 @@
                                     <option value="<?= $role_name ?>"><?= $role_name ?></option>
                                 <?php } ?>
                             </select>
+                            <input type="number" placeholder="set limit" value="<?= $role->set_limit ?>" />
+                            <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
+                            <input type="hidden" name="selections" value="">
+                            <input type="hidden" name="set_limit" value="">
                         <?php } ?>
                     <?php } ?>
                 </div>
