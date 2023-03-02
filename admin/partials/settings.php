@@ -355,16 +355,15 @@
                         </div>
                     `);
                     $('.has-selected').select2();
+                    // the final selection
+                    $('.has-selected').each(function() {
+                        var selected__roles = entries.roles;
+                        var selected_roles = selected__roles.split(',');
+                        $(this).val(selectedVals).trigger('change');
+                    });
                 });
                 getSelections();
             }
-
-            // the final selection
-            $('.has-selected').each(function() {
-                var selectedVals = $(this).parent().find('.selected-values').val();
-                var selectedVals = selectedVals.split(',');
-                $(this).val(selectedVals).trigger('change');
-            });
 
             // Check endpoint
             let checkEndPoint = async () => {
