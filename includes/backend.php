@@ -130,7 +130,9 @@
                 // );
                 // $userstoupdate = new WP_Query($args);
                 // var_dump($userstoupdate->ID);
-                var_dump(get_user_by('role', $rolesbyselection));
+
+                $userstoupdate = get_users( array( 'role__in' => $rolesbyselection ) );
+                var_dump($userstoupdate);
             }
         }
     }
