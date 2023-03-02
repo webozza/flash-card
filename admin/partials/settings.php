@@ -68,7 +68,7 @@
     $rolesselected = $getoptions['roles_selected'];
     echo $rolesselected;
     echo '<br>';
-    $rolesselected = substr($rolesselected, 1, -1);
+    //$rolesselected = substr($rolesselected, 1, -1);
     $rolesselected = stripslashes($rolesselected);
     var_dump(json_decode($rolesselected));
 ?>
