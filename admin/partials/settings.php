@@ -335,6 +335,7 @@
             // });
 
             let uniqueOutput = <?= $rolesselectedstripped ?>;
+            console.log(uniqueOutput);
             if(uniqueOutput.length > 0) {
                 $('.fc-fields-container').remove();
                 
@@ -346,7 +347,7 @@
                                     <option value="<?= strtolower($role_name) ?>"><?= $role_name ?></option>
                                 <?php } ?>
                             </select>
-                            <input type="number" placeholder="set limit" value="${entries.setLimit}" />
+                            <input type="number" placeholder="set limit" value="${entries.set_limit}" />
                             <input type="hidden" class="selected-values" value="${entries.roles}" />
                             <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
                             <input type="hidden" name="selections" value="">
