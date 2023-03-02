@@ -67,7 +67,7 @@
     $redirectlink = $getoptions['duplicate_redirect_link'];
     $rolesselected = $getoptions['roles_selected'];
     $rolesselectedarray = stripslashes($rolesselected);
-    $rolesselectedarray = json_decode($rolesselected);
+    $rolesselectedarray = json_decode($rolesselectedarray);
     var_dump($rolesselectedarray);
 ?>
 
