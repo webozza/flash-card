@@ -68,6 +68,7 @@
     $rolesselected = $getoptions['roles_selected'];
     $rolesselectedstripped = stripslashes($rolesselected);
     $rolesselectedarray = json_decode($rolesselectedstripped);
+    array_filter($rolesselectedarray, fn($value) => !is_null($value) && $value !== '');
     var_dump($rolesselectedarray);
 ?>
 
