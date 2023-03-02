@@ -67,9 +67,8 @@
     $redirectlink = $getoptions['duplicate_redirect_link'];
     $rolesselected = $getoptions['roles_selected'];
     echo $rolesselected;
-    $rolesselectedarray = wp_json_encode($rolesselected);
+    $rolesselectedarray = json_decode($rolesselected);
     var_dump($rolesselectedarray);
-    var_dump(json_decode($rolesselectedarray));
 ?>
 
 <div class="wrap">
