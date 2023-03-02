@@ -98,6 +98,7 @@
                     <?= $role->roles ?>
                     <div class="fc-fields-container">
                         <div class="inner">
+                            <input type="hidden" name="selections" value="<?= $role->roles ?>">
                             <select multiple class="fc-user-role">
                                 <?php foreach($roles_names_array as $role_name) { ?>
                                     <option value="<?= $role_name ?>"><?= $role_name ?></option>
@@ -105,7 +106,6 @@
                             </select>
                             <input type="number" placeholder="set limit" value="<?= $role->set_limit ?>" />
                             <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
-                            <input type="hidden" name="selections" value="<?= $role->roles ?>">
                             <input type="hidden" name="set_limit" value="">
                         </div>
                     </div>
