@@ -12,8 +12,6 @@
  * @subpackage Flash_Card/admin/partials
  */
 
- echo get_current_user_id();
-
 ?>
 
 <style>

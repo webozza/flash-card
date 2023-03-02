@@ -122,22 +122,11 @@
             $rolesselectedstripped = stripslashes($rolesselected);
             $rolesselectedarray = json_decode($rolesselectedstripped);
             foreach($rolesselectedarray as $selection) {
-                //var_dump($selection);
                 $rolesbyselection = explode (",", $selection->roles); 
-                // var_dump($rolesbyselection);
-                // $args = array(
-                //     'role'    => $rolesbyselection,
-                //     'order'   => 'ASC'
-                // );
-                // $userstoupdate = new WP_Query($args);
-                // var_dump($userstoupdate->ID);
-
                 $userstoupdate = get_users( array( 'role__in' => $rolesbyselection ) );
                 foreach($userstoupdate as $user) {
-                    // var_dump($user->ID);
-                    echo $user->ID;
+                    update_user_meta($user->ID, 'set_creation_limit', $selection->set_limit)
                 }
-                //update_user_meta($userstoupdate, 'set_creation_limit', $selection->set_limit)
             }
         }
     }
