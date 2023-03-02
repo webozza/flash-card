@@ -67,7 +67,7 @@
     $redirectlink = $getoptions['duplicate_redirect_link'];
     // var_dump($get_options['roles_selected']);
     $rolesSelected = $getoptions('roles_selected');
-    $rolesSelected = wp_json_decode($rolesSelected);
+    //$rolesSelected = wp_json_decode($rolesSelected);
     var_dump($rolesSelected);
 ?>
 
