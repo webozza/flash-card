@@ -80,11 +80,17 @@
 
             <div class="fc-fields-container">
                 <div class="inner">
-                    <select multiple class="fc-user-role">
-                        <?php foreach($roles_names_array as $role_name) { ?>
-                            <option value="<?= $role_name ?>"><?= $role_name ?></option>
-                        <?php } ?>
-                    </select>
+                    <?php if($getoptions['roles_selected'] == null) { ?>
+                        <select multiple class="fc-user-role">
+                            <?php foreach($roles_names_array as $role_name) { ?>
+                                <option value="<?= $role_name ?>"><?= $role_name ?></option>
+                            <?php } ?>
+                        </select>
+                    <?php } else { ?>
+                        <?php foreach($entry as $$rolesselectedarray) {
+                            var_dump($entry);
+                        } ?>
+                    <?php } ?>
                     <input type="number" placeholder="set limit" value="" />
                     <a class="fc-save-each" style="display:none;" href="javascript:void(0)">Save</a>
                 </div>
