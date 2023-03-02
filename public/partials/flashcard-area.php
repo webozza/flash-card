@@ -106,7 +106,7 @@ global $post;
                                     <button type="submit" ></button>
                                 </form>
                             </a>
-                            <?php if($usersetcount < $usersetlimit && $usersetlimit != "" && $usersetlimit != 0) { ?>
+                            <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
                                 <!-- Duplicate set form -->
                                 <form class="duplicate-set-form" style="display:none" action="" method="post">
                                     <input type="hidden" name="dup_set_id" value="<?= get_the_ID() ?>">
@@ -152,7 +152,7 @@ global $post;
             <span>You have exceeded your limit for creating sets....</span>
         <?php } ?>
 
-        <?php if($usersetcount < $usersetlimit && $usersetlimit != "" && $usersetlimit != 0) { ?>
+        <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
             <a id="createSet" href="<?= 'https://' . $shortcodepath . '?new-set'?>" class="button primary">
                 <span>Create Set</span>
             </a>
@@ -166,7 +166,7 @@ global $post;
                     <div id="default-card-<?= get_the_ID() ?>" class="default-card-crud">
                         <div class="card-title"><a href="<?= "/" . "$redirectslug/" . get_the_ID() . '/' . $featured_sets->post_title ?>"><h4><?php the_title(); ?></h4></a></div>
                         <div class="btn-crud">
-                        <?php if($usersetcount < $usersetlimit && $usersetlimit != "" && $usersetlimit != 0) { ?>
+                        <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
                             <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                             <!-- Duplicate set form -->
                             <form class="duplicate-set-form" style="display:none" action="" method="post">
@@ -209,7 +209,7 @@ global $post;
                                     <button type="submit" ></button>
                                 </form>
                             </a>
-                            <?php if($usersetcount < $usersetlimit && $usersetlimit != "" && $usersetlimit != 0) { ?>
+                            <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
                                 <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                             <?php } ?>
                         </div>
@@ -231,7 +231,7 @@ global $post;
                     <div id="default-card-<?= get_the_ID() ?>" class="default-card-crud">
                         <div class="card-title"><a href="<?= "/" . "$redirectslug/" . $setid . '/' . $setslug ?>"><h4><?php the_title() ?></h4></a></div>
                         <div class="btn-crud">
-                        <?php if($usersetcount < $usersetlimit && $usersetlimit != "" && $usersetlimit != 0) { ?>
+                        <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
                             <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                         <?php } ?>
                         </div>
