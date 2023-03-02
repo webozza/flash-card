@@ -132,7 +132,7 @@
                 // var_dump($userstoupdate->ID);
 
                 $userstoupdate = get_users( array( 'role__in' => $rolesbyselection ) );
-                var_dump($userstoupdate->ID);
+                var_dump($userstoupdate['ID']);
             }
         }
     }
