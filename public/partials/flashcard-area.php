@@ -107,13 +107,13 @@ global $post;
                                 </form>
                             </a>
                             <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
+                                <a class="cc-duplicate" href="javascript:void(0)"><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                                 <!-- Duplicate set form -->
                                 <form class="duplicate-set-form" style="display:none" action="" method="post">
                                     <input type="hidden" name="dup_set_id" value="<?= get_the_ID() ?>">
                                     <input type="hidden" name="duplicate_post" value="1"/> 
                                     <button type="submit"></button>
                                 </form>
-                                <a class="cc-duplicate" href="javascript:void(0)"><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -167,12 +167,6 @@ global $post;
                         <div class="card-title"><a href="<?= "/" . "$redirectslug/" . get_the_ID() . '/' . $featured_sets->post_title ?>"><h4><?php the_title(); ?></h4></a></div>
                         <div class="btn-crud">
                         <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
-                            <!-- Duplicate set form -->
-                            <form class="duplicate-set-form" style="display:none" action="" method="post">
-                                <input type="hidden" name="dup_set_id" value="<?= get_the_ID() ?>">
-                                <input type="hidden" name="duplicate_post" value="1"/> 
-                                <button type="submit"></button>
-                            </form>
                             <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                             <!-- Duplicate set form -->
                             <form class="duplicate-set-form" style="display:none" action="" method="post">
@@ -216,13 +210,13 @@ global $post;
                                 </form>
                             </a>
                             <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
+                                <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                                 <!-- Duplicate set form -->
                                 <form class="duplicate-set-form" style="display:none" action="" method="post">
                                     <input type="hidden" name="dup_set_id" value="<?= get_the_ID() ?>">
                                     <input type="hidden" name="duplicate_post" value="1"/> 
                                     <button type="submit"></button>
                                 </form>
-                                <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                             <?php } ?>
                         </div>
                     </div>
@@ -246,13 +240,13 @@ global $post;
                         <div class="card-title"><a href="<?= "/" . "$redirectslug/" . get_the_ID() . '/' . $featured_sets->post_title ?>"><h4><?php the_title() ?></h4></a></div>
                         <div class="btn-crud">
                         <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
+                            <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                             <!-- Duplicate set form -->
                             <form class="duplicate-set-form" style="display:none" action="" method="post">
                                 <input type="hidden" name="dup_set_id" value="<?= get_the_ID() ?>">
                                 <input type="hidden" name="duplicate_post" value="1"/> 
                                 <button type="submit"></button>
                             </form>
-                            <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
                         <?php } ?>
                         </div>
                     </div>
