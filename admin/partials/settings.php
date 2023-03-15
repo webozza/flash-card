@@ -70,6 +70,7 @@
     $rolesselectedarray = json_decode($rolesselectedstripped);
     array_filter($rolesselectedarray, fn($value) => !is_null($value) && $value !== '');
     var_dump($rolesselectedarray);
+    var_dump($getoptions['roles_selected']);
 ?>
 
 <div class="wrap">
