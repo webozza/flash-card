@@ -81,7 +81,7 @@
         <div class="inner">
 
             
-            <?php if($getoptions['roles_selected'] == null) { ?>
+            <?php if($getoptions['roles_selected'] == null || $getoptions['roles_selected'] == "[]") { ?>
                 <div class="fc-fields-container">
                     <div class="inner">
                         <select multiple class="fc-user-role">
