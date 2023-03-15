@@ -199,7 +199,7 @@ global $post;
                 <span>You have no sets</span>
                 <?php while ( $user_sets->have_posts() ) : $user_sets->the_post(); ?>
                     <div id="custom-card-<?= get_the_ID() ?>" class="custom-card-crud">
-                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . $setid . '/' . $setslug ?>"><h4><?php the_title(); ?></h4></a></div>
+                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . get_the_ID() . '/' . $setslug ?>"><h4><?php the_title(); ?></h4></a></div>
                         <div class="btn-crud">
                             <a class="cc-delete" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/delete.png" />
                             </a>
@@ -231,7 +231,7 @@ global $post;
             <div class="inner">
                 <?php while ( $featured_sets->have_posts() ) : $featured_sets->the_post(); ?>
                     <div id="default-card-<?= get_the_ID() ?>" class="default-card-crud">
-                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . $setid . '/' . $setslug ?>"><h4><?php the_title() ?></h4></a></div>
+                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . get_the_ID() . '/' . $setslug ?>"><h4><?php the_title() ?></h4></a></div>
                         <div class="btn-crud">
                         <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
                             <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
