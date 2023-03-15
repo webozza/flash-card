@@ -190,10 +190,6 @@ global $post;
     USERS WITH 0 SETS WILL SEE THIS 
 ----------------------------------------------->
 <?php if ( !$user_sets->have_posts() && !isset($_GET['edit-set']) && !isset($_GET['new-set'])) : ?>
-    <?php 
-        $setslug = sanitize_title(get_the_title());
-        $setid = get_the_ID();
-    ?>
     <div class="flash-card-area-wrapper">
 
         <!-- Custom sets -->
@@ -202,14 +198,14 @@ global $post;
             <div class="inner">
                 <span>You have no sets</span>
                 <?php while ( $user_sets->have_posts() ) : $user_sets->the_post(); ?>
-                    <div id="custom-card-<?= $setid ?>" class="custom-card-crud">
-                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . $setid . '/' . $setslug ?>"><h4><?php the_title(); ?></h4></a></div>
+                    <div id="custom-card-<?= get_the_ID() ?>" class="custom-card-crud">
+                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . get_the_ID() . '/' . $setslug ?>"><h4><?php the_title(); ?></h4></a></div>
                         <div class="btn-crud">
                             <a class="cc-delete" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/delete.png" />
                             </a>
                             <a class="cc-edit" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/edit.png" />
                                 <form class="fc--hide">
-                                    <input type="hidden" name="edit-set" value="<?= $setid ?>">
+                                    <input type="hidden" name="edit-set" value="<?= get_the_ID() ?>">
                                     <button type="submit" ></button>
                                 </form>
                             </a>
@@ -234,8 +230,8 @@ global $post;
             <h2>Default Flashcard Sets</h2>
             <div class="inner">
                 <?php while ( $featured_sets->have_posts() ) : $featured_sets->the_post(); ?>
-                    <div id="default-card-<?= $setid ?>" class="default-card-crud">
-                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . $setid . '/' . $setslug ?>"><h4><?php the_title() ?></h4></a></div>
+                    <div id="default-card-<?= get_the_ID() ?>" class="default-card-crud">
+                        <div class="card-title"><a href="<?= "/" . "$redirectslug/" . get_the_ID() . '/' . $featured_sets->post_title ?>"><h4><?php the_title() ?></h4></a></div>
                         <div class="btn-crud">
                         <?php if($usersetcount < $usersetlimit && $usersetlimit != 0 || strlen($usersetlimit) == 0) { ?>
                             <a class="cc-duplicate" href="javascript:void(0)" class=""><img src="/wp-content/plugins/flash-card/public/img/duplicate.png" /></a>
