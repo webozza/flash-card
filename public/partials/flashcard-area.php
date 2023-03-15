@@ -219,9 +219,11 @@ global $post;
         </div>
         
         <!-- Create Set Btn -->
-        <a id="createSet" class="button primary" href="<?= 'https://' . $shortcodepath . '?new-set'?>" class="button primary">
-            <span>Create Set</span>
-        </a>
+        <?php if($usersetlimit != 0) : ?>
+            <a id="createSet" class="button primary" href="<?= 'https://' . $shortcodepath . '?new-set'?>" class="button primary">
+                <span>Create Set</span>
+            </a>
+        <?php endif; ?>
 
         <!-- Default Sets (aka featured sets) -->
         <div id="default-flashcard-sets">
