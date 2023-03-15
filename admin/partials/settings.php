@@ -69,8 +69,6 @@
     $rolesselectedstripped = stripslashes($rolesselected);
     $rolesselectedarray = json_decode($rolesselectedstripped);
     array_filter($rolesselectedarray, fn($value) => !is_null($value) && $value !== '');
-    var_dump($rolesselectedarray);
-    var_dump($getoptions['roles_selected']);
 ?>
 
 <div class="wrap">
@@ -81,7 +79,7 @@
         <div class="inner">
 
             
-            <?php if($getoptions['roles_selected'] == null || $getoptions['roles_selected'] == "[]") { ?>
+            <?php if($getoptions['roles_selected'] == null || $getoptions['roles_selected'] == "[]" || $getoptions['roles_selected'] == "") { ?>
                 <div class="fc-fields-container">
                     <div class="inner">
                         <select multiple class="fc-user-role">
