@@ -308,21 +308,21 @@
         }
 
             // Check endpoint
-            let checkEndPoint = async () => {
-                const url = `/wp-json/wp/v2/flashcard`;
-                let res = await fetch(url, {
-                    method: "GET",
-                    headers: {
-                        'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
-                    }
-                });
-                return await res.json();
-            }
+            // let checkEndPoint = async () => {
+            //     const url = `/wp-json/wp/v2/flashcard`;
+            //     let res = await fetch(url, {
+            //         method: "GET",
+            //         headers: {
+            //             'X-WP-Nonce': '<?= wp_create_nonce("wp_rest") ?>',
+            //         }
+            //     });
+            //     return await res.json();
+            // }
 
-            let renderEndPoint = async () => {
-                let checkData = await checkEndPoint();
-            }
-            renderEndPoint();
+            // let renderEndPoint = async () => {
+            //     let checkData = await checkEndPoint();
+            // }
+            // renderEndPoint();
 
             // Post Redirect Link
             var _fcsettings = {
