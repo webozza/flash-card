@@ -135,6 +135,28 @@ function flashcard_area() {
  add_shortcode( 'flashcard-area', 'flashcard_area' );
 
  /**
+ * Duplicate post presets button shortcode
+ * @webozza
+ */
+function duplicate_post_presets() {
+	if ( is_user_logged_in() ) {
+		ob_start();
+		?>
+			<form class="duplicate-preset-form" style="display:none" action="" method="post">
+				<input type="hidden" name="dup_preset_id" value="<?= get_the_ID() ?>">
+				<input type="hidden" name="duplicate_presets" value="1"> 
+				<button type="submit"></button>
+			</form>
+			<a id="duplicatePresets" href="javascript:void(0)" class="button primary" style="margin-top: 20px;">
+				Duplicate Presets
+			</a>
+		<?php
+		return ob_get_clean();   
+	}
+ } 
+ add_shortcode( 'fc_duplicate', 'duplicate_post_presets' );
+
+ /**
  * Creates the frontend view shortcode
  * @webozza
  */

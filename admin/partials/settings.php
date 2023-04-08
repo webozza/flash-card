@@ -65,10 +65,10 @@
     $getoptions = get_option('fc_rlink');
     $redirectid = $getoptions['duplicate_redirect_id'];
     $redirectlink = $getoptions['duplicate_redirect_link'];
-    $rolesselected = $getoptions['roles_selected'];
-    $rolesselectedstripped = stripslashes($rolesselected);
-    $rolesselectedarray = json_decode($rolesselectedstripped);
-    array_filter($rolesselectedarray, fn($value) => !is_null($value) && $value !== '');
+    // $rolesselected = $getoptions['roles_selected'];
+    // $rolesselectedstripped = stripslashes($rolesselected);
+    // $rolesselectedarray = json_decode($rolesselectedstripped);
+    // array_filter($rolesselectedarray, fn($value) => !is_null($value) && $value !== '');
 ?>
 
 <div class="wrap">
