@@ -95,6 +95,12 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/create-set.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/edit-set.php';
 
 /**
+ * The post author set function resides here
+ * @webozza
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/post-author-set.php';
+
+/**
  * Add the settings page
  * @webozza
  */
