@@ -15,9 +15,11 @@ class Post_Author_Column
     {
         // Set column heading.
         add_filter('manage_portfolio_sets_posts_columns', [$this, 'set_author_title'], 10);
+        add_filter('manage_portfolio_sets_posts_columns', [$this, 'set_post_meta'], 10);
 
         // Set column heading content.
         add_action('manage_portfolio_sets_posts_custom_column', [$this, 'set_author_title_content'], 10, 2);
+        add_action('manage_portfolio_sets_posts_custom_column', [$this, 'set_author_meta_content'], 10, 2);
     }
 
     /**
@@ -33,6 +35,18 @@ class Post_Author_Column
     }
 
     /**
+     * Display column heading.
+     *
+     * @param array $defaults
+     * @return void
+     */
+    function set_post_meta($defaults)
+    {
+        $defaults['post_meta'] = 'Post Meta';
+        return $defaults;
+    }
+
+    /**
      * Display author name.
      *
      * @param string $column_name
@@ -44,6 +58,20 @@ class Post_Author_Column
         if ($column_name == 'author_name') {
             $author_id = get_post_field('post_author', $post_ID);
             echo get_the_author_meta('display_name', $author_id);
+        }
+    }
+
+    /**
+     * Display Post Meta.
+     *
+     * @param string $column_name
+     * @param int $post_ID
+     * @return void
+     */
+    function set_author_meta_content($column_name, $post_ID)
+    {
+        if ($column_name == 'post_meta') {
+            print_r(get_post_meta($post_ID, 'selected_presets'));
         }
     }
 }
