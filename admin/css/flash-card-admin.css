@@ -1,0 +1,150 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+.cc--new .accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.cc--new .accordion-header > div {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  cursor: pointer;
+}
+
+.cc--new .accordion-body {
+  padding: 20px;
+}
+
+#add_new_card {
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+#add_new_card:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.accordion-inner .button {
+  width: fit-content;
+}
+
+.save--card a:hover,
+.update--card a:hover {
+  opacity: 0.9;
+}
+
+.save--card a,
+.update--card a {
+  text-decoration: none;
+  color: #fff;
+  background: #446084;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.save--card,
+.update--card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  display: none;
+}
+
+#accordion_new_card > div .accordion-header > span {
+  cursor: pointer;
+  font-size: 1.25em;
+}
+
+#accordion_new_card {
+  max-height: 600px;
+  padding: 25px;
+  overflow-y: scroll;
+}
+
+.cc_field_image {
+  display: flex;
+  flex-direction: column;
+}
+
+.cc_field_image img {
+  max-width: 100px;
+  border: 1px solid #eeeeee;
+  padding: 30px;
+}
+
+.cc_field_image a:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#featured_set_meta_box .inside input {
+  position: relative;
+  top: 2px;
+}
+
+.featured-set-star-img {
+  width: 20px;
+}
+
+#set_owner {
+  width: 100%;
+}
+
+/* Featured Stars 
+ * ---------------------------------------------*/
+.featured-set-checkbox .star {
+  visibility: hidden;
+  font-size: 26px;
+  cursor: pointer;
+  position: relative;
+  top: 15px;
+}
+.featured-set-checkbox .star:before {
+  content: "\2606" !important;
+  position: absolute !important;
+  visibility: visible;
+}
+.featured-set-checkbox .star:checked:before {
+  content: "\2605" !important;
+  position: absolute;
+  color: #ff9529;
+  margin: unset !important;
+}
+
+/* Edit Area 
+-----------------------------------------------*/
+.post-type-portfolio_sets.edit-php th#author,
+.post-type-portfolio_sets.edit-php td.author {
+  display: none;
+}
+
+/* Preset Cards
+-----------------------------------------------*/
+ul.select2-selection__rendered img,
+.select2-results__option img:not(#_spinner) {
+  margin-right: 5px;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
