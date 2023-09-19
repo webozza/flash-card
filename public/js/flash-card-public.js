@@ -523,5 +523,13 @@
     }
   });
 
+
+  setTimeout(()=>{
+    $(".btn-study").on('click',()=>{
+      $('.card-item.active').removeClass('active');
+      console.log('sadsdsadsadasd')
+    })
+  },1000)
+ 
   // ENDS
 })(jQuery);

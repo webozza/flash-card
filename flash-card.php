@@ -184,16 +184,27 @@ add_shortcode('flashcard', 'flashcard_shortcode');
  * Enqueue scripts and styles for cpt portfolio_sets
  * @webozza
  */
+
+
 function run_plugin_scripts() {
-	if( is_singular('portfolio_sets') || shortcode_exists( 'flashcard' ) ) {
+	if(is_singular('portfolio_sets')){
+		echo 'portfolio_sets Exist <br>';
+	}
+	if( has_shortcode(get_the_content(), 'flashcard')){
+		echo 'Shortcode Exist';
+	}
+	if( is_singular('portfolio_sets') || has_shortcode(get_the_content(), 'flashcard')) {
+		
 		$public_dir = '/wp-content/plugins/flash-card/public/';
 		$admin_dir = '/wp-content/plugins/flash-card/admin/';
-
+		
+		
 		/* Stylesheets */
 		wp_enqueue_style('select2', $public_dir . 'css/select2.min.css' );
 		wp_enqueue_style('swiper', $public_dir . 'css/swiper.min.css' );
 		wp_enqueue_style('flashcard-slider', $public_dir . 'css/fc-slider.css' );
 		wp_enqueue_style('cpfp',  $public_dir . 'css/cpfp.css' );
+		
 
 		/* Scripts */
 		wp_enqueue_script('swiper', $public_dir . 'js/swiper.min.js', array('jquery') );
@@ -203,7 +214,72 @@ function run_plugin_scripts() {
 		};
 	}
 }
+
+
+// function run_plugin_scripts() {
+// 	if( is_singular('portfolio_sets') || shortcode_exists( 'flashcard' ) ) {
+		
+// 		$public_dir = '/wp-content/plugins/flash-card/public/';
+// 		$admin_dir = '/wp-content/plugins/flash-card/admin/';
+		
+// 		/* Stylesheets */
+// 		wp_enqueue_style('select2', $public_dir . 'css/select2.min.css' );
+// 		wp_enqueue_style('swiper', $public_dir . 'css/swiper.min.css' );
+// 		wp_enqueue_style('flashcard-slider', $public_dir . 'css/fc-slider.css' );
+// 		wp_enqueue_style('cpfp',  $public_dir . 'css/cpfp.css' );
+
+// 		/* Scripts */
+// 		wp_enqueue_script('swiper', $public_dir . 'js/swiper.min.js', array('jquery') );
+// 		wp_enqueue_script('select2', $public_dir . 'js/select2.min.js', array('jquery') );
+// 		if ( is_singular('portfolio_sets') ) {
+// 			wp_enqueue_script('single-sets', $public_dir . 'js/single-sets.js', array('jquery') );
+// 		};
+// 	}
+// }
+
+
+// function run_plugin_scripts() {
+//     if (is_singular('portfolio_sets')) {
+// 		echo 'portfolio_sets Exist <br>';
+//         $public_dir = '/wp-content/plugins/flash-card/public/';
+        
+//         /* Stylesheets */
+//         wp_enqueue_style('select2', $public_dir . 'css/select2.min.css');
+//         wp_enqueue_style('swiper', $public_dir . 'css/swiper.min.css');
+//         wp_enqueue_style('flashcard-slider', $public_dir . 'css/fc-slider.css');
+//         wp_enqueue_style('cpfp',  $public_dir . 'css/cpfp.css');
+        
+//         /* Scripts */
+//         wp_enqueue_script('swiper', $public_dir . 'js/swiper.min.js', array('jquery'));
+//         wp_enqueue_script('select2', $public_dir . 'js/select2.min.js', array('jquery'));
+//         wp_enqueue_script('single-sets', $public_dir . 'js/single-sets.js', array('jquery'));
+
+//     } elseif (has_shortcode(get_the_content(), 'flashcard')) {
+// 		echo 'Shortcode Exist';
+
+//         $public_dir = '/wp-content/plugins/flash-card/public/';
+        
+//         /* Stylesheets */
+//         wp_enqueue_style('select2', $public_dir . 'css/select2.min.css');
+//         wp_enqueue_style('swiper', $public_dir . 'css/swiper.min.css');
+//         wp_enqueue_style('flashcard-slider', $public_dir . 'css/fc-slider.css');
+//         wp_enqueue_style('cpfp',  $public_dir . 'css/cpfp.css');
+        
+//         /* Scripts */
+//         wp_enqueue_script('swiper', $public_dir . 'js/swiper.min.js', array('jquery'));
+//         wp_enqueue_script('select2', $public_dir . 'js/select2.min.js', array('jquery'));
+// 		        wp_enqueue_script('single-sets', $public_dir . 'js/single-sets.js', array('jquery'));
+
+//     }
+// }
+
+
+
+
+
 add_action('wp_enqueue_scripts', 'run_plugin_scripts');
+
+
 
 /**
  * Enqueue duplicate set function for single posts
