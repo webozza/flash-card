@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLASH_CARD_VERSION', '29.6.54' );
+define( 'FLASH_CARD_VERSION', '29.6.56' );
 
 /**
  * The code that runs during plugin activation.
@@ -204,7 +204,7 @@ function run_plugin_scripts() {
 		wp_enqueue_style('swiper', $public_dir . 'css/swiper.min.css' );
 		wp_enqueue_style('flashcard-slider', $public_dir . 'css/fc-slider.css' );
 		wp_enqueue_style('cpfp',  $public_dir . 'css/cpfp.css' );
-		
+
 
 		/* Scripts */
 		wp_enqueue_script('swiper', $public_dir . 'js/swiper.min.js', array('jquery') );
